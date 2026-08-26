@@ -6,6 +6,7 @@ import ItemEditor from './pages/ItemEditor';
 import Analytics from './pages/Analytics';
 import Automation from './pages/Automation';
 import Settings from './pages/Settings';
+import Marketplaces from './pages/Marketplaces';
 
 function Shell() {
   return (
@@ -27,6 +28,7 @@ export default function App() {
         <Route path="/analytics/:tab" element={<Analytics />} />
         <Route path="/automation" element={<Automation />} />
         <Route path="/settings" element={<Settings />} />
+        <Route path="/settings/marketplaces" element={<Marketplaces />} />
       </Route>
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>

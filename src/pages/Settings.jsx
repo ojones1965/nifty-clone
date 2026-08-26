@@ -1,15 +1,13 @@
-import {
-  getMarketplaceLinks,
-  MARKETPLACES,
-  toggleMarketplaceLink,
-} from '../lib/store';
+import { Link } from 'react-router-dom';
+import { getMarketplaces, MARKETPLACES } from '../lib/store';
 import { useStoreVersion } from '../lib/useStore';
 import MarketBadge from '../components/MarketBadge';
 
 export default function Settings() {
   useStoreVersion();
 
-  const links = getMarketplaceLinks();
+  const { primary, accounts } = getMarketplaces();
+  const connected = MARKETPLACES.filter((mp) => accounts[mp.id]?.connected);
 
   function handleExport() {
     const dump = {};
@@ -32,28 +30,26 @@ export default function Settings() {
       </header>
 
       <section className="card">
-        <h2>Marketplace connections</h2>
-        <p className="card-sub">Linked marketplaces can be selected when listing items.</p>
-        <div className="mp-list">
-          {MARKETPLACES.map((mp) => (
-            <div className="mp-row" key={mp.id}>
-              <MarketBadge id={mp.id} size={26} />
-              <span className="mp-name">{mp.name}</span>
-              <label className="toggle-row compact">
-                <input
-                  type="checkbox"
-                  checked={!!links[mp.id]}
-                  onChange={() => toggleMarketplaceLink(mp.id)}
-                />
-                <span className="toggle-track" aria-hidden="true"><span className="toggle-thumb" /></span>
-              </label>
+        <div className="card-head">
+          <div className="eyebrow">Marketplaces</div>
+          <Link to="/settings/marketplaces" className="card-link">Manage</Link>
+        </div>
+        <p className="card-sub">
+          {connected.length} connected
+          {primary ? ` · Primary: ${MARKETPLACES.find((m) => m.id === primary)?.name}` : ''}
+        </p>
+        <div className="mp-chip-row">
+          {connected.map((mp) => (
+            <div className="mp-chip" key={mp.id}>
+              <MarketBadge id={mp.id} size={22} />
+              <span>{mp.name}</span>
             </div>
           ))}
         </div>
       </section>
 
       <section className="card">
-        <h2>Data</h2>
+        <div className="eyebrow">Data</div>
         <p className="card-sub">
           Everything is stored in this browser. Download a backup occasionally —
           clearing browser data would erase the app's data.

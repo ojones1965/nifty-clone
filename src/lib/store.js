@@ -31,8 +31,14 @@ export {
 export {
   getDismissedAlerts,
   dismissAlert,
+  getMarketplaces,
   getMarketplaceLinks,
-  toggleMarketplaceLink,
+  connectMarketplace,
+  disconnectMarketplace,
+  setMarketplaceUsername,
+  setPrimaryMarketplace,
+  markMarketplaceVerified,
   getAutomation,
+  getAutomationSummary,
   toggleAutomation,
 } from './settingsStore';

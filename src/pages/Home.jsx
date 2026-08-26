@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
   dismissAlert,
-  getAutomation,
+  getAutomationSummary,
   getDismissedAlerts,
   getGoals,
   isoDate,
@@ -86,7 +86,7 @@ export default function Home() {
   const [alertTab, setAlertTab] = useState('active');
   const [editingGoals, setEditingGoals] = useState(false);
 
-  const auto = getAutomation();
+  const auto = getAutomationSummary();
   const today = isoDate();
   const orders = listOrders();
   const todaysOrders = orders.filter((o) => o.date === today);

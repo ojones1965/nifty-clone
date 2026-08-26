@@ -1,58 +1,191 @@
-import { getAutomation, toggleAutomation } from '../lib/store';
+import { useState } from 'react';
+import {
+  getAutomation,
+  getMarketplaceLinks,
+  MARKETPLACES,
+  toggleAutomation,
+} from '../lib/store';
 import { useStoreVersion } from '../lib/useStore';
+import MarketBadge from '../components/MarketBadge';
 
-const KINDS = [
-  { id: 'shares', label: 'Auto-share listings', desc: 'Shares your active listings to followers throughout the day.' },
-  { id: 'relists', label: 'Auto-relist stale items', desc: 'Relists items that have been active for 30+ days.' },
-  { id: 'offers', label: 'Auto-send offers', desc: 'Sends offers to likers with a discount you choose.' },
-  { id: 'follows', label: 'Auto-follow', desc: 'Follows new users to grow your audience.' },
-];
+function mpName(id) {
+  return MARKETPLACES.find((m) => m.id === id)?.name || id;
+}
+
+function AutoToggle({ kind, enabled }) {
+  return (
+    <label className="toggle-row compact">
+      <input type="checkbox" checked={enabled} onChange={() => toggleAutomation(kind)} />
+      <span className="toggle-track" aria-hidden="true"><span className="toggle-thumb" /></span>
+    </label>
+  );
+}
+
+// Status banner under each automation card: running (accent tint) or paused.
+function AutoBanner({ kind, enabled, runningText }) {
+  return (
+    <div className={'auto-banner' + (enabled ? '' : ' paused')}>
+      <span className="auto-banner-text">
+        {enabled ? runningText : 'Paused — turn the switch on to resume.'}
+      </span>
+      <AutoToggle kind={kind} enabled={enabled} />
+    </div>
+  );
+}
+
+function SectionHead({ id }) {
+  return (
+    <div className="mp-section-head">
+      <MarketBadge id={id} size={30} />
+      <span className="mp-section-name">{mpName(id)}</span>
+    </div>
+  );
+}
 
 export default function Automation() {
   useStoreVersion();
+  const [tab, setTab] = useState('dashboard');
   const auto = getAutomation();
+  const links = getMarketplaceLinks();
 
   return (
     <div className="page">
       <header className="page-topbar">
         <h1 className="topbar-title">Automation</h1>
+        <div className="pill-tabs">
+          <button
+            className={tab === 'dashboard' ? 'active' : ''}
+            onClick={() => setTab('dashboard')}
+          >
+            Dashboard
+          </button>
+          <button
+            className={tab === 'history' ? 'active' : ''}
+            onClick={() => setTab('history')}
+          >
+            History
+          </button>
+        </div>
       </header>
 
-      <section className="card">
-        <h2>Today's activity</h2>
-        <div className="stat-grid">
-          <div className="stat-box"><div className="stat-value">{auto.shares.toLocaleString()}</div><div className="stat-label">Shares</div></div>
-          <div className="stat-box"><div className="stat-value">{auto.relists}</div><div className="stat-label">Relists</div></div>
-          <div className="stat-box"><div className="stat-value">{auto.offers}</div><div className="stat-label">Offers</div></div>
-          <div className="stat-box"><div className="stat-value">{auto.follows}</div><div className="stat-label">Follows</div></div>
-        </div>
-      </section>
+      {tab === 'history' ? (
+        <section className="card">
+          <div className="eyebrow">History</div>
+          <p className="card-note">
+            No automation history yet — completed runs will appear here.
+          </p>
+        </section>
+      ) : (
+        <>
+          {links.poshmark && (
+            <>
+              <SectionHead id="poshmark" />
 
-      <section className="card">
-        <h2>Rules</h2>
-        <div className="rule-list">
-          {KINDS.map((k) => (
-            <div className="rule-row" key={k.id}>
-              <div className="rule-info">
-                <p className="order-title">{k.label}</p>
-                <p className="order-meta">{k.desc}</p>
-              </div>
-              <label className="toggle-row compact">
-                <input
-                  type="checkbox"
-                  checked={auto.enabled[k.id]}
-                  onChange={() => toggleAutomation(k.id)}
+              <section className="card">
+                <div className="eyebrow">Shares &amp; relists</div>
+                <div className="stat-grid">
+                  <div className="stat-box">
+                    <div className="stat-value">{auto.poshmark.selfShares.toLocaleString()}</div>
+                    <div className="stat-label">Self shares</div>
+                  </div>
+                  <div className="stat-box">
+                    <div className="stat-value">{auto.poshmark.partyShares.toLocaleString()}</div>
+                    <div className="stat-label">Party shares</div>
+                  </div>
+                  <div className="stat-box">
+                    <div className="stat-value">{auto.poshmark.communityShares.toLocaleString()}</div>
+                    <div className="stat-label">Community</div>
+                  </div>
+                  <div className="stat-box">
+                    <div className="stat-value">{auto.poshmark.relists}</div>
+                    <div className="stat-label">Relists</div>
+                  </div>
+                </div>
+                <AutoBanner
+                  kind="shares"
+                  enabled={auto.enabled.shares}
+                  runningText="Automatically sharing & relisting on Poshmark throughout the day."
                 />
-                <span className="toggle-track" aria-hidden="true"><span className="toggle-thumb" /></span>
-              </label>
-            </div>
-          ))}
-        </div>
-        <p className="card-note small">
-          Note: real marketplace automation requires marketplace API access. These
-          toggles and counters track your setup locally.
-        </p>
-      </section>
+              </section>
+
+              <section className="card">
+                <div className="card-head">
+                  <div className="eyebrow">Offers</div>
+                  <span className="card-aside">to likers</span>
+                </div>
+                <div className="auto-count">{auto.poshmark.offers.toLocaleString()}</div>
+                <AutoBanner
+                  kind="offers"
+                  enabled={auto.enabled.offers}
+                  runningText="Automatically offering on Poshmark throughout the day."
+                />
+              </section>
+
+              <section className="card">
+                <div className="eyebrow">Follows</div>
+                <div className="stat-grid three">
+                  <div className="stat-box">
+                    <div className="stat-value">{auto.poshmark.reciprocalFollows.toLocaleString()}</div>
+                    <div className="stat-label">Reciprocal</div>
+                  </div>
+                  <div className="stat-box">
+                    <div className="stat-value">{auto.poshmark.newFollows.toLocaleString()}</div>
+                    <div className="stat-label">New follows</div>
+                  </div>
+                  <div className="stat-box">
+                    <div className="stat-value">{auto.poshmark.unfollows.toLocaleString()}</div>
+                    <div className="stat-label">Unfollows</div>
+                  </div>
+                </div>
+                <AutoBanner
+                  kind="follows"
+                  enabled={auto.enabled.follows}
+                  runningText="Following daily to grow your audience."
+                />
+              </section>
+            </>
+          )}
+
+          {['ebay', 'mercari'].map((id) =>
+            links[id] ? (
+              <div key={id} className="mp-section">
+                <SectionHead id={id} />
+
+                <section className="card">
+                  <div className="card-head">
+                    <div className="eyebrow">Offers</div>
+                    <span className="card-aside">to watchers</span>
+                  </div>
+                  <div className="auto-count">{auto[id].offers.toLocaleString()}</div>
+                  <AutoBanner
+                    kind="offers"
+                    enabled={auto.enabled.offers}
+                    runningText={`Automatically offering on ${mpName(id)} throughout the day.`}
+                  />
+                </section>
+
+                <section className="card">
+                  <div className="card-head">
+                    <div className="eyebrow">Recreates</div>
+                    <span className="card-aside">stale listings</span>
+                  </div>
+                  <div className="auto-count">{auto[id].recreates.toLocaleString()}</div>
+                  <AutoBanner
+                    kind="relists"
+                    enabled={auto.enabled.relists}
+                    runningText={`Automatically recreating stale listings on ${mpName(id)} daily.`}
+                  />
+                </section>
+              </div>
+            ) : null
+          )}
+
+          <p className="card-note small">
+            Note: real marketplace automation requires marketplace API access. These
+            counters and switches track your setup locally.
+          </p>
+        </>
+      )}
     </div>
   );
 }
