@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom';
+import Logo from './Logo';
 
 const tabs = [
   {
@@ -36,10 +37,31 @@ const tabs = [
   },
 ];
 
-// Mobile-first shell: page content + fixed bottom tab bar (like the real app).
+// Responsive shell: top nav bar on desktop, fixed bottom tab bar on mobile
+// (only one is visible at a time — see the media queries in index.css).
 export default function AppLayout({ children }) {
   return (
     <div className="app-shell">
+      <header className="top-nav">
+        <div className="top-nav-inner">
+          <NavLink to="/" className="brand">
+            <Logo size={26} />
+            <span className="brand-name">Flow</span>
+          </NavLink>
+          <nav className="top-nav-links">
+            {tabs.map((t) => (
+              <NavLink
+                key={t.to}
+                to={t.to}
+                end={t.to === '/'}
+                className={({ isActive }) => 'top-link' + (isActive ? ' active' : '')}
+              >
+                {t.label}
+              </NavLink>
+            ))}
+          </nav>
+        </div>
+      </header>
       <main className="app-main">{children}</main>
       <nav className="bottom-nav">
         {tabs.map((t) => (
