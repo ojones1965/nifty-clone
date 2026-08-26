@@ -1,0 +1,13 @@
+{
+  "artboards": [
+    { "file": "Main.dc.html", "x": 0, "y": 0, "w": 760, "h": 1080, "title": "Option A — Refined current" },
+    { "file": "DataFirst.dc.html", "x": 860, "y": 0, "w": 920, "h": 940, "title": "Option B — Data-first" },
+    { "file": "Briefing.dc.html", "x": 1880, "y": 0, "w": 760, "h": 1020, "title": "Option C — Daily briefing" }
+  ],
+  "annotations": [
+    { "id": "note-option-a", "x": 0, "y": -190, "w": 700, "text": "Option A — Refined current\nSame structure as today, tightened: money moved to the top with big revenue/profit tiles, date in the header, one primary action. Closest to the existing code, so cheapest to build.\nTradeoff: still one long scroll." },
+    { "id": "note-option-b", "x": 860, "y": -190, "w": 840, "text": "Option B — Data-first\nKPI row up top with context lines (vs yesterday, margin), then a two-column desktop layout: goals + attention on the left, automation and month summary in a sidebar. Most glanceable on a big screen.\nTradeoff: needs a responsive collapse for phone widths." },
+    { "id": "note-option-c", "x": 1880, "y": -190, "w": 700, "text": "Option C — Daily briefing\nLeads with a greeting, one hero profit number, quick actions, and a prioritized \"Up next\" task list with per-task actions. Most personal — reads like a morning briefing.\nTradeoff: automation stats are demoted to a footer strip." }
+  ],
+  "launch": { "view": "canvas" }
+}
