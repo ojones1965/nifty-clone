@@ -7,17 +7,11 @@ import {
   listItems,
   listOrders,
   markSold,
-  signOut,
-  signUp,
   updateItem,
 } from '../src/lib/store';
 
-beforeEach(async () => {
+beforeEach(() => {
   localStorage.clear();
-  signOut();
-  await signUp({ name: 'Test', email: 'test@example.com', password: 'pass1234' });
-  // Remove the demo seed so item tests start from an empty inventory.
-  listItems().forEach((i) => deleteItem(i.id));
 });
 
 describe('createItem sanitization', () => {
@@ -83,10 +77,9 @@ describe('item lifecycle', () => {
     expect(item.soldPrice).toBe(80);
     expect(item.soldMarketplace).toBe('ebay');
 
-    // Deleting seeded items does not remove their seeded orders, so look up
-    // the order for this item rather than asserting on the full list.
-    const order = listOrders().find((o) => o.itemId === id);
-    expect(order).toMatchObject({
+    const orders = listOrders();
+    expect(orders).toHaveLength(1);
+    expect(orders[0]).toMatchObject({
       itemId: id,
       salePrice: 80,
       marketplace: 'ebay',

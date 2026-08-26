@@ -1,7 +1,7 @@
-// Per-user data blob: shape, scoping to the signed-in user, and persistence.
+// Single-user data blob: shape and persistence. The app has no accounts —
+// everything lives under one fixed localStorage key.
 
-import { DATA_PREFIX, read, write, deepMerge, notify } from './storage';
-import { getSession } from './authStore';
+import { DATA_KEY, read, write, deepMerge, notify } from './storage';
 
 export function emptyData() {
   return {
@@ -28,21 +28,11 @@ export function emptyData() {
   };
 }
 
-function dataKey() {
-  const session = getSession();
-  return session ? DATA_PREFIX + session.userId : null;
-}
-
 export function getData() {
-  const key = dataKey();
-  if (!key) return emptyData();
-  return deepMerge(emptyData(), read(key, {}));
+  return deepMerge(emptyData(), read(DATA_KEY, {}));
 }
 
 export function saveData(data) {
-  const key = dataKey();
-  if (key) {
-    write(key, data);
-    notify();
-  }
+  write(DATA_KEY, data);
+  notify();
 }

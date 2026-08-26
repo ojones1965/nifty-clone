@@ -1,8 +1,8 @@
 // Low-level persistence helpers + change notification, shared by the domain stores.
 
-export const USERS_KEY = 'flow_users';
-export const SESSION_KEY = 'flow_session';
-export const DATA_PREFIX = 'resell_data_';
+// Single-user app: all data lives under one key. The "local" suffix is a
+// leftover from the per-account "resell_data_<userId>" scheme.
+export const DATA_KEY = 'resell_data_local';
 
 // ---------- tiny pub/sub ----------
 const listeners = new Set();

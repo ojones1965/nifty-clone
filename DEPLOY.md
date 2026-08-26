@@ -1,8 +1,8 @@
 # Deploying Flow to your personal server
 
 The app is a fully static site — no backend, no database, no environment
-variables. Everything in `dist/` is the complete app. Data (accounts, projects,
-tasks, comments) is stored in the browser's localStorage.
+variables. Everything in `dist/` is the complete app. All data is stored in
+the browser's localStorage.
 
 ## Current deployment (LLMServer, Docker)
 
@@ -88,10 +88,9 @@ npx serve /var/www/flow
 - **Clearing browser data wipes the app's data.** If that matters, export a
   backup occasionally: open DevTools → Console and run
   `copy(JSON.stringify(localStorage))`, then paste it into a file.
-- **Auth is local-only.** Passwords are stored as salted PBKDF2 hashes in
-  localStorage, but there is no server-side auth at all — anyone who can reach
-  the URL can create an account and use the app. If the server is reachable
-  from the internet, protect the URL itself (e.g. basic auth or a VPN) rather
-  than relying on the app's sign-in.
+- **There is no sign-in.** This is a single-user app — anyone who can reach
+  the URL can use it (though they'd only see their own browser's data). Keep
+  it LAN/Tailscale-only; if it ever needs internet exposure, put basic auth or
+  a VPN in front of the URL.
 - **Updating:** rebuild (`npm run build`) and re-copy `dist/`. Existing data is
   untouched — it lives in your browser, not on the server.

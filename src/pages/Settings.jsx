@@ -1,26 +1,15 @@
-import { useNavigate } from 'react-router-dom';
 import {
   getMarketplaceLinks,
-  getSession,
   MARKETPLACES,
-  signOut,
   toggleMarketplaceLink,
 } from '../lib/store';
 import { useStoreVersion } from '../lib/useStore';
 import MarketBadge from '../components/MarketBadge';
 
 export default function Settings() {
-  const navigate = useNavigate();
   useStoreVersion();
 
-  const session = getSession();
   const links = getMarketplaceLinks();
-  if (!session) return null;
-
-  function handleSignOut() {
-    signOut();
-    navigate('/sign-in');
-  }
 
   function handleExport() {
     const dump = {};
@@ -41,20 +30,6 @@ export default function Settings() {
       <header className="page-topbar">
         <h1 className="topbar-title">Settings</h1>
       </header>
-
-      <section className="card">
-        <h2>Account</h2>
-        <div className="account-row">
-          <span className="avatar">
-            {session.name.split(' ').map((w) => w[0]).slice(0, 2).join('').toUpperCase()}
-          </span>
-          <div>
-            <p className="order-title">{session.name}</p>
-            <p className="order-meta">{session.email}</p>
-          </div>
-        </div>
-        <button className="btn btn-outline" onClick={handleSignOut}>Sign out</button>
-      </section>
 
       <section className="card">
         <h2>Marketplace connections</h2>

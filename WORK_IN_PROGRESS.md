@@ -1,5 +1,14 @@
 # Nifty Clone – Work in Progress Notes
 
+## Update (2026-08-25, later): auth removed
+
+The app is now a single-user personal tool: the sign-in/sign-up/forgot-password
+pages, the marketing header (Pricing/Support/Blog), the account section in
+Settings, and the demo-data seeding were all removed. All data lives under one
+fixed localStorage key (`resell_data_local`, see [src/lib/data.js](src/lib/data.js)),
+and the app opens straight into the dashboard. The auth-related notes below
+describe the state before that change.
+
 ## Current status: milestone complete (2026-08-25)
 
 All four follow-up items from the previous hardening pass are done, and the app
