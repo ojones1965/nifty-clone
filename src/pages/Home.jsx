@@ -8,11 +8,18 @@ import {
   isoDate,
   listItems,
   listOrders,
+  MARKETPLACES,
   setGoals,
 } from '../lib/store';
 import { useStoreVersion } from '../lib/useStore';
 import { moneyShort } from '../lib/format';
+import MarketBadge from '../components/MarketBadge';
 import Modal from '../components/Modal';
+
+function shortDate(iso) {
+  const [y, m, d] = iso.split('-').map(Number);
+  return new Date(y, m - 1, d).toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+}
 
 function StatBox({ value, label }) {
   return (
@@ -73,12 +80,32 @@ export default function Home() {
     0
   );
 
-  // Goals: progress this calendar month.
+  // Goals: progress this calendar month, measured against how far through
+  // the month we are.
   const goals = getGoals();
   const monthStart = today.slice(0, 8) + '01';
   const monthOrders = orders.filter((o) => o.date >= monthStart);
   const monthRevenue = monthOrders.reduce((s, o) => s + o.salePrice, 0);
   const monthSales = monthOrders.length;
+
+  const now = new Date();
+  const dayOfMonth = now.getDate();
+  const daysInMonth = new Date(now.getFullYear(), now.getMonth() + 1, 0).getDate();
+  const monthElapsed = dayOfMonth / daysInMonth;
+  const monthElapsedPct = Math.round(monthElapsed * 100);
+  const monthName = now.toLocaleDateString('en-US', { month: 'long' });
+  const hasGoals = goals.monthlyRevenue != null || goals.monthlySales != null;
+  const revenueDelta = goals.monthlyRevenue != null
+    ? Math.round(monthRevenue - goals.monthlyRevenue * monthElapsed)
+    : null;
+
+  const recentSales = orders.slice(0, 4);
+  const draftCount = listItems('draft').length;
+  const listedCount = listItems('listed').length;
+  const soldCount = listItems('sold').length;
+  const staleCount = listItems('listed').filter(
+    (i) => i.listedAt && Date.now() - i.listedAt > 30 * 86400000
+  ).length;
 
   const dismissed = getDismissedAlerts();
   const allAlerts = computeAlerts();
@@ -101,6 +128,49 @@ export default function Home() {
         </div>
         <Link to="/item/new" className="btn btn-primary">+ Add item</Link>
       </header>
+
+      <section className="card">
+        <div className="card-head">
+          <h2>{hasGoals ? `${monthName} pace` : 'Goals'}</h2>
+          <button className="btn btn-outline btn-sm" onClick={() => setEditingGoals(true)}>
+            Edit goals
+          </button>
+        </div>
+        {hasGoals ? (
+          <>
+            <p className="card-sub">
+              Day {dayOfMonth} of {daysInMonth} · {monthElapsedPct}% of the month gone
+            </p>
+            <div className="goal-list">
+              {goals.monthlyRevenue != null && (
+                <GoalRow
+                  label="Monthly revenue"
+                  current={monthRevenue}
+                  target={goals.monthlyRevenue}
+                  fmt={moneyShort}
+                  markerPct={monthElapsedPct}
+                  delta={
+                    <div className={'pace-delta ' + (revenueDelta < 0 ? 'behind' : 'ahead')}>
+                      {moneyShort(Math.abs(revenueDelta))}{' '}
+                      {revenueDelta < 0 ? 'behind pace' : 'ahead of pace'}
+                    </div>
+                  }
+                />
+              )}
+              {goals.monthlySales != null && (
+                <GoalRow
+                  label="Monthly sales"
+                  current={monthSales}
+                  target={goals.monthlySales}
+                  fmt={(v) => v}
+                />
+              )}
+            </div>
+          </>
+        ) : (
+          <p className="card-note">Set time-based targets to measure your progress.</p>
+        )}
+      </section>
 
       <section className="card summary-card">
         <h2>Today's summary</h2>
@@ -130,37 +200,6 @@ export default function Home() {
           <StatBox value={auto.offers} label="Offers" />
           <StatBox value={auto.follows} label="Follows" />
         </div>
-      </section>
-
-      <section className="card">
-        <div className="card-head">
-          <h2>Goals</h2>
-          <button className="btn btn-outline btn-sm" onClick={() => setEditingGoals(true)}>
-            Edit goals
-          </button>
-        </div>
-        {goals.monthlyRevenue == null && goals.monthlySales == null ? (
-          <p className="card-note">Set time-based targets to measure your progress.</p>
-        ) : (
-          <div className="goal-list">
-            {goals.monthlyRevenue != null && (
-              <GoalRow
-                label="Monthly revenue"
-                current={monthRevenue}
-                target={goals.monthlyRevenue}
-                fmt={moneyShort}
-              />
-            )}
-            {goals.monthlySales != null && (
-              <GoalRow
-                label="Monthly sales"
-                current={monthSales}
-                target={goals.monthlySales}
-                fmt={(v) => v}
-              />
-            )}
-          </div>
-        )}
       </section>
 
       <section className="card">
@@ -206,6 +245,53 @@ export default function Home() {
         )}
       </section>
 
+      <section className="card table-card">
+        <div className="table-head">
+          <span>Recent sales</span>
+          <Link to="/analytics" className="table-head-link">Analytics</Link>
+        </div>
+        {recentSales.length === 0 ? (
+          <p className="card-note empty-list">No sales recorded yet.</p>
+        ) : (
+          recentSales.map((o) => {
+            const profit = o.salePrice - o.cogs - o.fees - o.shippingExpense;
+            const mpName = MARKETPLACES.find((m) => m.id === o.marketplace)?.name || o.marketplace;
+            return (
+              <div className="order-row" key={o.id}>
+                <MarketBadge id={o.marketplace} size={26} />
+                <div className="order-info">
+                  <p className="order-title">{o.title}</p>
+                  <p className="order-meta">{mpName} · {shortDate(o.date)}</p>
+                </div>
+                <div className="order-side">
+                  <span className="order-price">{moneyShort(o.salePrice)}</span>
+                  <span className={'order-profit' + (profit < 0 ? ' neg' : '')}>
+                    {profit >= 0 ? '+' : ''}{moneyShort(profit)}
+                  </span>
+                </div>
+              </div>
+            );
+          })
+        )}
+      </section>
+
+      <section className="card">
+        <div className="card-head">
+          <h2>Inventory</h2>
+          <Link to="/inventory" className="table-head-link">View all</Link>
+        </div>
+        <div className="stat-grid three">
+          <StatBox value={draftCount} label="Drafts" />
+          <StatBox value={listedCount} label="Listed" />
+          <StatBox value={soldCount} label="Sold" />
+        </div>
+        {staleCount > 0 && (
+          <p className="card-note">
+            {staleCount} listing{staleCount === 1 ? ' has' : 's have'} been up more than 30 days.
+          </p>
+        )}
+      </section>
+
       {editingGoals && (
         <GoalsModal goals={goals} onClose={() => setEditingGoals(false)} />
       )}
@@ -213,7 +299,7 @@ export default function Home() {
   );
 }
 
-function GoalRow({ label, current, target, fmt }) {
+function GoalRow({ label, current, target, fmt, markerPct, delta }) {
   const pct = target > 0 ? Math.min(100, Math.round((current / target) * 100)) : 0;
   return (
     <div className="goal-row">
@@ -226,6 +312,14 @@ function GoalRow({ label, current, target, fmt }) {
       <div className="progress">
         <div className="progress-fill" style={{ width: pct + '%' }} />
       </div>
+      {markerPct != null && (
+        <div className="pace-track">
+          <div className="pace-marker" style={{ left: markerPct + '%' }}>
+            <span>today</span>
+          </div>
+        </div>
+      )}
+      {delta}
     </div>
   );
 }

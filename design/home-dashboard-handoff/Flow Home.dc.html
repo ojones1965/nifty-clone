@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300..800;1,400&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,400&display=swap" rel="stylesheet">
+<style>
+  body { margin:0; background:#efedea; font-family:'Public Sans',system-ui,sans-serif; -webkit-font-smoothing:antialiased; }
+  a { color:oklch(.55 .13 80); text-decoration:none; }
+  a:hover { color:oklch(.45 .13 80); }
+  ::-webkit-scrollbar { width:0; height:0; }
+</style>
+</helmet>
+
+<section style="display:flex;flex-direction:column;gap:28px;padding:40px 40px 8px">
+  <div style="display:flex;align-items:baseline;gap:14px">
+    <span style="display:inline-flex;align-items:center;height:26px;padding:0 10px;border-radius:999px;background:#1a1917;color:#faf9f8;font:600 12px/1 'Public Sans',sans-serif;letter-spacing:.04em">Turn 2</span>
+    <span style="font:400 20px/1 Newsreader,serif;color:#3d3a35">Rebuilt against the real data model · 680px column, the width <code style="font:500 15px/1 ui-monospace,monospace">.app-main</code> actually allows</span>
+  </div>
+
+  <div style="display:flex;gap:32px;align-items:flex-start;flex-wrap:wrap">
+
+    <!-- ===== 2a — repo styles ===== -->
+    <div id="2a" style="display:flex;flex-direction:column;gap:14px">
+      <div style="display:flex;align-items:baseline;gap:12px">
+        <span style="display:inline-flex;align-items:center;height:24px;padding:0 9px;border-radius:999px;background:#0d9488;color:#fff;font:700 12px/1 'Public Sans',sans-serif">2a</span>
+        <span style="font:600 14px/1 'Public Sans',sans-serif;color:#3d3a35">Repo styles — existing tokens and classes</span>
+      </div>
+      <div style="display:flex;gap:20px;align-items:flex-start">
+
+        <!-- desktop 680 -->
+        <div style="width:712px;flex:none;background:#f6f8f9;border:1px solid #dfe4e8;border-radius:16px;overflow:hidden;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;color:#1f2937;font-size:15px;line-height:1.5;box-shadow:0 20px 50px -30px rgba(15,23,42,.4)">
+          <div style="background:#fff;border-bottom:1px solid #e2e8f0">
+            <div style="max-width:680px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:10px 14px">
+              <div style="display:inline-flex;align-items:center;gap:9px">
+                <svg width="26" height="26" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#0d9488"></rect><path d="M9 16.5l5 5 9-11" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                <span style="font-weight:700;font-size:17px">Flow</span>
+              </div>
+              <div style="display:flex;gap:4px">
+                <span style="padding:7px 12px;border-radius:8px;font-size:14px;font-weight:600;color:#0d9488;background:rgba(13,148,136,.1)">Home</span>
+                <span style="padding:7px 12px;border-radius:8px;font-size:14px;font-weight:600;color:#64748b">Inventory</span>
+                <span style="padding:7px 12px;border-radius:8px;font-size:14px;font-weight:600;color:#64748b">Analytics</span>
+                <span style="padding:7px 12px;border-radius:8px;font-size:14px;font-weight:600;color:#64748b">Automation</span>
+                <span style="padding:7px 12px;border-radius:8px;font-size:14px;font-weight:600;color:#64748b">Settings</span>
+              </div>
+            </div>
+          </div>
+
+          <div style="max-width:680px;margin:0 auto;padding:14px 14px 24px;display:flex;flex-direction:column;gap:14px">
+            <div style="display:flex;align-items:center;justify-content:space-between;min-height:38px">
+              <div style="display:flex;align-items:baseline;gap:10px">
+                <h1 style="font-size:21px;font-weight:700;margin:0">Home</h1>
+                <span style="font-size:13.5px;color:#64748b">Tuesday, August 25</span>
+              </div>
+              <span style="display:inline-flex;align-items:center;padding:9px 16px;border-radius:10px;background:#0d9488;color:#fff;font-weight:600;font-size:14px">+ Add item</span>
+            </div>
+
+            <!-- month pace -->
+            <div style="background:#fff;border:1px solid #e2e8f0;border-radius:14px;box-shadow:0 1px 2px rgba(15,23,42,.05),0 3px 12px rgba(15,23,42,.05);padding:18px;display:flex;flex-direction:column;gap:10px">
+              <div style="display:flex;align-items:center;justify-content:space-between;gap:12px">
+                <h2 style="font-size:18px;font-weight:700;margin:0">August pace</h2>
+                <span style="display:inline-flex;align-items:center;padding:7px 13px;border-radius:10px;border:1px solid #e2e8f0;background:#fff;font-weight:600;font-size:13.5px">Edit goals</span>
+              </div>
+              <div style="color:#64748b;font-size:13.5px;margin-top:-4px">Day 25 of 31 · 81% of the month gone</div>
+              <div style="display:flex;flex-direction:column;gap:12px;margin-top:4px">
+                <div>
+                  <div style="display:flex;justify-content:space-between;font-size:13.5px;font-weight:600">
+                    <span>Monthly revenue</span><span style="color:#64748b">$1,840 / $2,500</span>
+                  </div>
+                  <div style="position:relative;height:8px;border-radius:99px;background:#e2e8f0;overflow:hidden;margin-top:5px">
+                    <div style="height:100%;width:74%;border-radius:99px;background:#0d9488"></div>
+                  </div>
+                  <div style="position:relative;height:16px">
+                    <div style="position:absolute;left:81%;top:-8px;width:2px;height:16px;background:#1f2937"></div>
+                    <div style="position:absolute;left:81%;transform:translateX(-50%);top:8px;font-size:11.5px;font-weight:600;color:#1f2937;white-space:nowrap">today</div>
+                  </div>
+                  <div style="margin-top:14px;font-size:12.5px;font-weight:700;color:#e5484d">$185 behind pace</div>
+                </div>
+                <div>
+                  <div style="display:flex;justify-content:space-between;font-size:13.5px;font-weight:600">
+                    <span>Monthly sales</span><span style="color:#64748b">47 / 80</span>
+                  </div>
+                  <div style="height:8px;border-radius:99px;background:#e2e8f0;overflow:hidden;margin-top:5px">
+                    <div style="height:100%;width:59%;border-radius:99px;background:#0d9488"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- today's summary -->
+            <div style="background:#fff;border:1px solid #e2e8f0;border-radius:14px;box-shadow:0 1px 2px rgba(15,23,42,.05),0 3px 12px rgba(15,23,42,.05);padding:18px;display:flex;flex-direction:column;gap:10px">
+              <h2 style="font-size:18px;font-weight:700;margin:0">Today's summary</h2>
+              <div style="color:#64748b;font-size:13.5px;margin-top:-4px">Your numbers at a glance</div>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+                <div style="border:1px solid #e2e8f0;border-radius:10px;padding:16px 14px;background:rgba(13,148,136,.1);display:flex;flex-direction:column;gap:2px">
+                  <span style="font-size:12.5px;color:#64748b">Revenue today</span>
+                  <span style="font-size:28px;font-weight:700;line-height:1.2">$142</span>
+                </div>
+                <div style="border:1px solid #e2e8f0;border-radius:10px;padding:16px 14px;background:rgba(13,148,136,.1);display:flex;flex-direction:column;gap:2px">
+                  <span style="font-size:12.5px;color:#64748b">Profit today</span>
+                  <span style="font-size:28px;font-weight:700;line-height:1.2;color:#0f766e">$87</span>
+                </div>
+              </div>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+                <div style="border:1px solid #e2e8f0;border-radius:10px;padding:14px 6px;text-align:center">
+                  <div style="font-size:22px;font-weight:700;line-height:1.2">3</div>
+                  <div style="font-size:12.5px;color:#64748b">Sold</div>
+                </div>
+                <div style="border:1px solid #e2e8f0;border-radius:10px;padding:14px 6px;text-align:center">
+                  <div style="font-size:22px;font-weight:700;line-height:1.2">5</div>
+                  <div style="font-size:12.5px;color:#64748b">Listed</div>
+                </div>
+              </div>
+              <hr style="border:none;border-top:1px solid #e2e8f0;margin:4px 0;width:100%">
+              <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#64748b">Automation</div>
+              <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px">
+                <sc-for list="{{ repoAuto }}" as="s" hint-placeholder-count="4">
+                  <div style="border:1px solid #e2e8f0;border-radius:10px;padding:14px 6px;text-align:center">
+                    <div style="font-size:22px;font-weight:700;line-height:1.2">{{ s.value }}</div>
+                    <div style="font-size:12.5px;color:#64748b">{{ s.label }}</div>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+
+            <!-- needs attention -->
+            <div style="background:#fff;border:1px solid #e2e8f0;border-radius:14px;box-shadow:0 1px 2px rgba(15,23,42,.05),0 3px 12px rgba(15,23,42,.05);padding:18px;display:flex;flex-direction:column;gap:10px">
+              <h2 style="font-size:18px;font-weight:700;margin:0">Needs attention</h2>
+              <div style="color:#64748b;font-size:13.5px;margin-top:-4px">High-priority actions worth handling now</div>
+              <div style="display:flex;gap:6px">
+                <span style="padding:6px 15px;border-radius:99px;background:rgba(13,148,136,.1);border:1px solid transparent;font-size:13.5px;font-weight:600;color:#0f766e">Active (6)</span>
+                <span style="padding:6px 15px;border-radius:99px;border:1px solid #e2e8f0;background:#fff;font-size:13.5px;font-weight:600;color:#64748b">Dismissed</span>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:6px">
+                <sc-for list="{{ alerts }}" as="a" hint-placeholder-count="4">
+                  <div style="display:flex;align-items:center;gap:8px;background:#f6f8f9;border:1px solid #e2e8f0;border-radius:10px;padding:9px 12px">
+                    <span style="flex:1;font-size:13.5px;color:#0d9488">{{ a.text }}</span>
+                    <span style="width:26px;height:26px;border-radius:7px;display:inline-flex;align-items:center;justify-content:center;font-size:16px;color:#64748b">×</span>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+
+            <!-- recent sales -->
+            <div style="background:#fff;border:1px solid #e2e8f0;border-radius:14px;box-shadow:0 1px 2px rgba(15,23,42,.05),0 3px 12px rgba(15,23,42,.05);padding:0;overflow:hidden">
+              <div style="background:#f6f8f9;font-weight:700;font-size:14px;padding:10px 16px;border-bottom:1px solid #e2e8f0;display:flex;justify-content:space-between;align-items:center">
+                <span>Recent sales</span>
+                <span style="font-weight:600;font-size:13.5px;color:#0d9488">Analytics</span>
+              </div>
+              <sc-for list="{{ orders }}" as="o" hint-placeholder-count="4">
+                <div style="display:flex;align-items:center;gap:12px;padding:12px 16px;border-bottom:1px solid #e2e8f0">
+                  <div style="width:26px;height:26px;border-radius:6px;display:inline-flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:14.3px;flex-shrink:0;background:{{ o.mpColor }}">{{ o.mpShort }}</div>
+                  <div style="flex:1;min-width:0">
+                    <div style="font-weight:600;font-size:13.5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ o.title }}</div>
+                    <div style="font-size:12.5px;color:#64748b">{{ o.meta }}</div>
+                  </div>
+                  <div style="display:flex;flex-direction:column;align-items:flex-end;gap:2px;flex-shrink:0">
+                    <span style="font-weight:700">{{ o.price }}</span>
+                    <span style="font-size:12px;font-weight:700;color:#0f766e">{{ o.profit }}</span>
+                  </div>
+                </div>
+              </sc-for>
+            </div>
+
+            <!-- inventory snapshot -->
+            <div style="background:#fff;border:1px solid #e2e8f0;border-radius:14px;box-shadow:0 1px 2px rgba(15,23,42,.05),0 3px 12px rgba(15,23,42,.05);padding:18px;display:flex;flex-direction:column;gap:10px">
+              <div style="display:flex;align-items:center;justify-content:space-between;gap:12px">
+                <h2 style="font-size:18px;font-weight:700;margin:0">Inventory</h2>
+                <span style="font-weight:600;font-size:13.5px;color:#0d9488">View all</span>
+              </div>
+              <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px">
+                <div style="border:1px solid #e2e8f0;border-radius:10px;padding:14px 6px;text-align:center">
+                  <div style="font-size:22px;font-weight:700;line-height:1.2">12</div>
+                  <div style="font-size:12.5px;color:#64748b">Drafts</div>
+                </div>
+                <div style="border:1px solid #e2e8f0;border-radius:10px;padding:14px 6px;text-align:center">
+                  <div style="font-size:22px;font-weight:700;line-height:1.2">86</div>
+                  <div style="font-size:12.5px;color:#64748b">Listed</div>
+                </div>
+                <div style="border:1px solid #e2e8f0;border-radius:10px;padding:14px 6px;text-align:center">
+                  <div style="font-size:22px;font-weight:700;line-height:1.2">47</div>
+                  <div style="font-size:12.5px;color:#64748b">Sold</div>
+                </div>
+              </div>
+              <div style="color:#64748b;font-style:italic;font-size:14px">9 listings have been up more than 30 days.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- mobile 2a -->
+        <div style="width:390px;flex:none;background:#f6f8f9;border:1px solid #dfe4e8;border-radius:30px;overflow:hidden;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;color:#1f2937;box-shadow:0 20px 50px -30px rgba(15,23,42,.4)">
+          <div style="height:44px;display:flex;align-items:flex-end;justify-content:space-between;padding:0 22px 6px;font-size:13px;font-weight:600"><span>9:41</span><span style="color:#64748b;letter-spacing:.12em">▮▮▮</span></div>
+          <div style="padding:14px 14px 20px;display:flex;flex-direction:column;gap:14px">
+            <div style="display:flex;align-items:center;justify-content:space-between">
+              <div style="display:flex;align-items:baseline;gap:10px">
+                <h1 style="font-size:21px;font-weight:700;margin:0">Home</h1>
+                <span style="font-size:13.5px;color:#64748b">Aug 25</span>
+              </div>
+              <span style="display:inline-flex;align-items:center;padding:9px 16px;border-radius:10px;background:#0d9488;color:#fff;font-weight:600;font-size:14px">+ Add item</span>
+            </div>
+            <div style="background:#fff;border:1px solid #e2e8f0;border-radius:14px;box-shadow:0 1px 2px rgba(15,23,42,.05),0 3px 12px rgba(15,23,42,.05);padding:18px;display:flex;flex-direction:column;gap:10px">
+              <h2 style="font-size:18px;font-weight:700;margin:0">August pace</h2>
+              <div style="color:#64748b;font-size:13.5px;margin-top:-4px">Day 25 of 31</div>
+              <div style="display:flex;justify-content:space-between;font-size:13.5px;font-weight:600;margin-top:4px"><span>Monthly revenue</span><span style="color:#64748b">$1,840 / $2,500</span></div>
+              <div style="position:relative;height:8px;border-radius:99px;background:#e2e8f0;overflow:hidden"><div style="height:100%;width:74%;border-radius:99px;background:#0d9488"></div></div>
+              <div style="font-size:12.5px;font-weight:700;color:#e5484d">$185 behind pace</div>
+              <div style="display:flex;justify-content:space-between;font-size:13.5px;font-weight:600;margin-top:4px"><span>Monthly sales</span><span style="color:#64748b">47 / 80</span></div>
+              <div style="height:8px;border-radius:99px;background:#e2e8f0;overflow:hidden"><div style="height:100%;width:59%;border-radius:99px;background:#0d9488"></div></div>
+            </div>
+            <div style="background:#fff;border:1px solid #e2e8f0;border-radius:14px;box-shadow:0 1px 2px rgba(15,23,42,.05),0 3px 12px rgba(15,23,42,.05);padding:18px;display:flex;flex-direction:column;gap:10px">
+              <h2 style="font-size:18px;font-weight:700;margin:0">Today's summary</h2>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+                <div style="border:1px solid #e2e8f0;border-radius:10px;padding:16px 14px;background:rgba(13,148,136,.1)">
+                  <div style="font-size:12.5px;color:#64748b">Revenue today</div>
+                  <div style="font-size:28px;font-weight:700;line-height:1.2">$142</div>
+                </div>
+                <div style="border:1px solid #e2e8f0;border-radius:10px;padding:16px 14px;background:rgba(13,148,136,.1)">
+                  <div style="font-size:12.5px;color:#64748b">Profit today</div>
+                  <div style="font-size:28px;font-weight:700;line-height:1.2;color:#0f766e">$87</div>
+                </div>
+              </div>
+              <hr style="border:none;border-top:1px solid #e2e8f0;margin:4px 0;width:100%">
+              <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#64748b">Automation</div>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+                <sc-for list="{{ repoAuto }}" as="s" hint-placeholder-count="4">
+                  <div style="border:1px solid #e2e8f0;border-radius:10px;padding:14px 6px;text-align:center">
+                    <div style="font-size:22px;font-weight:700;line-height:1.2">{{ s.value }}</div>
+                    <div style="font-size:12.5px;color:#64748b">{{ s.label }}</div>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+            <div style="background:#fff;border:1px solid #e2e8f0;border-radius:14px;box-shadow:0 1px 2px rgba(15,23,42,.05),0 3px 12px rgba(15,23,42,.05);padding:18px;display:flex;flex-direction:column;gap:10px">
+              <h2 style="font-size:18px;font-weight:700;margin:0">Needs attention</h2>
+              <div style="display:flex;gap:6px">
+                <span style="padding:6px 15px;border-radius:99px;background:rgba(13,148,136,.1);font-size:13.5px;font-weight:600;color:#0f766e">Active (6)</span>
+                <span style="padding:6px 15px;border-radius:99px;border:1px solid #e2e8f0;font-size:13.5px;font-weight:600;color:#64748b">Dismissed</span>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:6px">
+                <sc-for list="{{ alertsShort }}" as="a" hint-placeholder-count="3">
+                  <div style="display:flex;align-items:center;gap:8px;background:#f6f8f9;border:1px solid #e2e8f0;border-radius:10px;padding:9px 12px">
+                    <span style="flex:1;font-size:13.5px;color:#0d9488">{{ a.text }}</span>
+                    <span style="width:26px;height:26px;display:inline-flex;align-items:center;justify-content:center;font-size:16px;color:#64748b">×</span>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+          </div>
+          <div style="height:64px;background:#fff;border-top:1px solid #e2e8f0;display:flex;justify-content:center;gap:4px">
+            <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="5">
+              <div style="flex:1;max-width:120px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;font-size:11.5px;font-weight:600;color:{{ t.color }}">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="{{ t.d }}"></path></svg>
+                <span>{{ t.label }}</span>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== 2b — new direction ===== -->
+    <div id="2b" style="display:flex;flex-direction:column;gap:14px">
+      <div style="display:flex;align-items:baseline;gap:12px">
+        <span style="display:inline-flex;align-items:center;height:24px;padding:0 9px;border-radius:999px;background:oklch(.68 .13 80);color:#231b08;font:700 12px/1 'Public Sans',sans-serif">2b</span>
+        <span style="font:600 14px/1 'Public Sans',sans-serif;color:#3d3a35">New direction — same content, ochre + Newsreader</span>
+      </div>
+      <div style="display:flex;gap:20px;align-items:flex-start">
+
+        <div style="width:712px;flex:none;background:#faf9f8;border:1px solid #ddd9d3;border-radius:16px;overflow:hidden;box-shadow:0 20px 50px -30px rgba(26,25,23,.4)">
+          <div style="background:#faf9f8;border-bottom:1px solid #e6e3de">
+            <div style="max-width:680px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 14px">
+              <div style="display:inline-flex;align-items:center;gap:9px">
+                <svg width="26" height="26" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#1a1917"></rect><path d="M9 16.5l5 5 9-11" fill="none" stroke="oklch(.78 .13 80)" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                <span style="font:400 21px/1 Newsreader,serif;color:#1a1917">Flow</span>
+              </div>
+              <div style="display:flex;gap:4px">
+                <span style="padding:7px 12px;border-radius:8px;background:#1a1917;color:#faf9f8;font:600 13px/1 'Public Sans',sans-serif">Home</span>
+                <span style="padding:7px 12px;border-radius:8px;color:#57534c;font:500 13px/1 'Public Sans',sans-serif">Inventory</span>
+                <span style="padding:7px 12px;border-radius:8px;color:#57534c;font:500 13px/1 'Public Sans',sans-serif">Analytics</span>
+                <span style="padding:7px 12px;border-radius:8px;color:#57534c;font:500 13px/1 'Public Sans',sans-serif">Automation</span>
+                <span style="padding:7px 12px;border-radius:8px;color:#57534c;font:500 13px/1 'Public Sans',sans-serif">Settings</span>
+              </div>
+            </div>
+          </div>
+
+          <div style="max-width:680px;margin:0 auto;padding:20px 14px 26px;display:flex;flex-direction:column;gap:16px">
+            <div style="display:flex;align-items:flex-end;justify-content:space-between">
+              <div>
+                <div style="font:400 28px/1.1 Newsreader,serif;letter-spacing:-.015em;color:#1a1917">Home</div>
+                <div style="margin-top:5px;font:400 13.5px/1 'Public Sans',sans-serif;color:#7a746c">Tuesday, August 25 · day 25 of 31</div>
+              </div>
+              <span style="display:inline-flex;align-items:center;padding:9px 16px;border-radius:9px;background:oklch(.68 .13 80);color:#231b08;font:700 13.5px/1 'Public Sans',sans-serif">+ Add item</span>
+            </div>
+
+            <!-- pace -->
+            <div style="background:#fff;border:1px solid #e6e3de;border-radius:16px;padding:22px 24px">
+              <div style="display:flex;align-items:flex-start;justify-content:space-between">
+                <div>
+                  <div style="font:600 11px/1 'Public Sans',sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#8d8880">August pace</div>
+                  <div style="margin-top:12px;display:flex;align-items:baseline;gap:10px">
+                    <span style="font:400 46px/1 Newsreader,serif;letter-spacing:-.02em;color:#1a1917">$1,840</span>
+                    <span style="font:400 16px/1 'Public Sans',sans-serif;color:#8d8880">of $2,500</span>
+                  </div>
+                </div>
+                <div style="display:flex;align-items:center;gap:8px;padding:7px 13px;border-radius:999px;background:#fbeee9;border:1px solid #f3d9cf">
+                  <div style="width:7px;height:7px;border-radius:50%;background:oklch(.58 .16 30)"></div>
+                  <span style="font:700 12.5px/1 'Public Sans',sans-serif;color:#8a3418">$185 behind</span>
+                </div>
+              </div>
+              <div style="margin-top:20px;position:relative;height:12px;border-radius:999px;background:#f0eee9;overflow:hidden">
+                <div style="position:absolute;inset:0 26% 0 0;background:oklch(.68 .13 80);border-radius:999px"></div>
+              </div>
+              <div style="position:relative;height:20px;margin-top:5px">
+                <div style="position:absolute;left:81%;top:-24px;width:2px;height:24px;background:#1a1917"></div>
+                <div style="position:absolute;left:81%;transform:translateX(-50%);font:600 11.5px/1 'Public Sans',sans-serif;color:#1a1917;white-space:nowrap">Today · 81% of month</div>
+              </div>
+              <div style="margin-top:12px;padding-top:16px;border-top:1px solid #f0eee9;display:flex;align-items:center;justify-content:space-between">
+                <span style="font:500 13.5px/1 'Public Sans',sans-serif;color:#57534c">Monthly sales</span>
+                <div style="display:flex;align-items:center;gap:14px">
+                  <div style="width:200px;height:8px;border-radius:999px;background:#f0eee9;overflow:hidden"><div style="height:100%;width:59%;background:#c9c3b8;border-radius:999px"></div></div>
+                  <span style="font:600 13.5px/1 'Public Sans',sans-serif;color:#1a1917">47 / 80</span>
+                  <a href="#2b" style="font:600 13px/1 'Public Sans',sans-serif">Edit goals</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- today -->
+            <div style="background:#fff;border:1px solid #e6e3de;border-radius:16px;padding:22px 24px">
+              <div style="display:flex;align-items:baseline;justify-content:space-between">
+                <div style="font:600 11px/1 'Public Sans',sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#8d8880">Today</div>
+                <span style="font:400 12.5px/1 'Public Sans',sans-serif;color:#a09a91">3 orders</span>
+              </div>
+              <div style="margin-top:16px;display:grid;grid-template-columns:repeat(4,1fr);gap:20px">
+                <sc-for list="{{ todayReal }}" as="m" hint-placeholder-count="4">
+                  <div style="display:flex;flex-direction:column;gap:6px;padding-left:14px;border-left:1px solid #e6e3de">
+                    <span style="font:400 28px/1 Newsreader,serif;color:#1a1917">{{ m.value }}</span>
+                    <span style="font:500 12.5px/1 'Public Sans',sans-serif;color:#57534c">{{ m.label }}</span>
+                  </div>
+                </sc-for>
+              </div>
+              <div style="margin-top:20px;padding-top:18px;border-top:1px solid #f0eee9">
+                <div style="font:600 11px/1 'Public Sans',sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#8d8880">Automation</div>
+                <div style="margin-top:14px;display:grid;grid-template-columns:repeat(4,1fr);gap:20px">
+                  <sc-for list="{{ repoAuto }}" as="s" hint-placeholder-count="4">
+                    <div style="display:flex;flex-direction:column;gap:6px;padding-left:14px;border-left:1px solid #e6e3de">
+                      <span style="font:400 24px/1 Newsreader,serif;color:#1a1917">{{ s.value }}</span>
+                      <span style="font:500 12.5px/1 'Public Sans',sans-serif;color:#57534c">{{ s.label }}</span>
+                    </div>
+                  </sc-for>
+                </div>
+              </div>
+            </div>
+
+            <!-- attention -->
+            <div style="background:#fff;border:1px solid #e6e3de;border-radius:16px;padding:22px 24px">
+              <div style="display:flex;align-items:center;justify-content:space-between">
+                <div style="font:600 11px/1 'Public Sans',sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#8d8880">Needs attention</div>
+                <div style="display:flex;gap:6px">
+                  <span style="padding:5px 12px;border-radius:999px;background:#f6f1e4;font:700 12px/1 'Public Sans',sans-serif;color:#5d4a1c">Active (6)</span>
+                  <span style="padding:5px 12px;border-radius:999px;border:1px solid #e6e3de;font:600 12px/1 'Public Sans',sans-serif;color:#8d8880">Dismissed</span>
+                </div>
+              </div>
+              <div style="margin-top:8px">
+                <sc-for list="{{ alerts }}" as="a" hint-placeholder-count="4">
+                  <div style="display:flex;gap:12px;align-items:center;padding:13px 0;border-top:1px solid #f0eee9">
+                    <div style="width:6px;height:6px;border-radius:50%;background:{{ a.dot }};flex:none"></div>
+                    <div style="flex:1;font:500 13.5px/1.4 'Public Sans',sans-serif;color:#1a1917">{{ a.text }}</div>
+                    <span style="font:600 12.5px/1 'Public Sans',sans-serif;color:#a09a91">×</span>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+
+            <!-- recent sales -->
+            <div style="background:#fff;border:1px solid #e6e3de;border-radius:16px;padding:22px 24px">
+              <div style="display:flex;align-items:center;justify-content:space-between">
+                <div style="font:600 11px/1 'Public Sans',sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#8d8880">Recent sales</div>
+                <a href="#2b" style="font:600 12.5px/1 'Public Sans',sans-serif">Analytics</a>
+              </div>
+              <div style="margin-top:8px">
+                <sc-for list="{{ orders }}" as="o" hint-placeholder-count="4">
+                  <div style="display:flex;align-items:center;gap:12px;padding:13px 0;border-top:1px solid #f0eee9">
+                    <div style="width:26px;height:26px;border-radius:6px;display:inline-flex;align-items:center;justify-content:center;color:#fff;font:800 14.3px/1 'Public Sans',sans-serif;flex:none;background:{{ o.mpColor }}">{{ o.mpShort }}</div>
+                    <div style="flex:1;min-width:0">
+                      <div style="font:600 14px/1.3 'Public Sans',sans-serif;color:#1a1917;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ o.title }}</div>
+                      <div style="margin-top:2px;font:400 12.5px/1 'Public Sans',sans-serif;color:#8d8880">{{ o.meta }}</div>
+                    </div>
+                    <div style="text-align:right;flex:none">
+                      <div style="font:600 14px/1 'Public Sans',sans-serif;color:#1a1917">{{ o.price }}</div>
+                      <div style="margin-top:3px;font:600 12.5px/1 'Public Sans',sans-serif;color:oklch(.52 .12 150)">{{ o.profit }}</div>
+                    </div>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+
+            <!-- inventory -->
+            <div style="background:#fff;border:1px solid #e6e3de;border-radius:16px;padding:22px 24px">
+              <div style="display:flex;align-items:center;justify-content:space-between">
+                <div style="font:600 11px/1 'Public Sans',sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#8d8880">Inventory</div>
+                <a href="#2b" style="font:600 12.5px/1 'Public Sans',sans-serif">View all</a>
+              </div>
+              <div style="margin-top:16px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px">
+                <sc-for list="{{ inventory }}" as="i" hint-placeholder-count="3">
+                  <div style="display:flex;flex-direction:column;gap:6px;padding-left:14px;border-left:1px solid #e6e3de">
+                    <span style="font:400 28px/1 Newsreader,serif;color:#1a1917">{{ i.value }}</span>
+                    <span style="font:500 12.5px/1 'Public Sans',sans-serif;color:#57534c">{{ i.label }}</span>
+                  </div>
+                </sc-for>
+              </div>
+              <div style="margin-top:16px;padding-top:14px;border-top:1px solid #f0eee9;font:400 13px/1.5 'Public Sans',sans-serif;color:#7a746c">9 listings have been up more than 30 days.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- mobile 2b -->
+        <div style="width:390px;flex:none;background:#faf9f8;border:1px solid #ddd9d3;border-radius:30px;overflow:hidden;box-shadow:0 20px 50px -30px rgba(26,25,23,.4)">
+          <div style="height:44px;display:flex;align-items:flex-end;justify-content:space-between;padding:0 22px 6px;font:600 13px/1 'Public Sans',sans-serif;color:#1a1917"><span>9:41</span><span style="color:#8d8880;letter-spacing:.12em">▮▮▮</span></div>
+          <div style="padding:14px 16px 20px;display:flex;flex-direction:column;gap:14px">
+            <div style="display:flex;align-items:flex-end;justify-content:space-between">
+              <div>
+                <div style="font:400 26px/1.1 Newsreader,serif;color:#1a1917">Home</div>
+                <div style="margin-top:4px;font:400 13px/1 'Public Sans',sans-serif;color:#8d8880">Day 25 of 31</div>
+              </div>
+              <span style="display:inline-flex;align-items:center;padding:9px 15px;border-radius:9px;background:oklch(.68 .13 80);color:#231b08;font:700 13.5px/1 'Public Sans',sans-serif">+ Add item</span>
+            </div>
+            <div style="background:#fff;border:1px solid #e6e3de;border-radius:16px;padding:20px">
+              <div style="display:flex;align-items:center;justify-content:space-between">
+                <div style="font:600 10.5px/1 'Public Sans',sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#8d8880">August pace</div>
+                <div style="display:flex;align-items:center;gap:7px;padding:6px 11px;border-radius:999px;background:#fbeee9;border:1px solid #f3d9cf">
+                  <div style="width:6px;height:6px;border-radius:50%;background:oklch(.58 .16 30)"></div>
+                  <span style="font:700 11.5px/1 'Public Sans',sans-serif;color:#8a3418">$185 behind</span>
+                </div>
+              </div>
+              <div style="margin-top:12px;display:flex;align-items:baseline;gap:9px">
+                <span style="font:400 38px/1 Newsreader,serif;color:#1a1917">$1,840</span>
+                <span style="font:400 14px/1 'Public Sans',sans-serif;color:#8d8880">of $2,500</span>
+              </div>
+              <div style="margin-top:14px;position:relative;height:11px;border-radius:999px;background:#f0eee9;overflow:hidden">
+                <div style="position:absolute;inset:0 26% 0 0;background:oklch(.68 .13 80);border-radius:999px"></div>
+              </div>
+              <div style="position:relative;height:18px;margin-top:5px">
+                <div style="position:absolute;left:81%;top:-22px;width:2px;height:22px;background:#1a1917"></div>
+                <div style="position:absolute;left:81%;transform:translateX(-50%);font:600 11px/1 'Public Sans',sans-serif;color:#1a1917;white-space:nowrap">Today</div>
+              </div>
+              <div style="margin-top:8px;padding-top:14px;border-top:1px solid #f0eee9;display:flex;justify-content:space-between;align-items:center">
+                <span style="font:500 13px/1 'Public Sans',sans-serif;color:#57534c">Monthly sales</span>
+                <span style="font:600 13px/1 'Public Sans',sans-serif;color:#1a1917">47 / 80</span>
+              </div>
+            </div>
+            <div style="background:#fff;border:1px solid #e6e3de;border-radius:16px;padding:20px">
+              <div style="font:600 10.5px/1 'Public Sans',sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#8d8880">Today</div>
+              <div style="margin-top:14px;display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:12px">
+                <sc-for list="{{ todayReal }}" as="m" hint-placeholder-count="4">
+                  <div style="display:flex;flex-direction:column;gap:5px">
+                    <span style="font:400 22px/1 Newsreader,serif;color:#1a1917">{{ m.value }}</span>
+                    <span style="font:500 11.5px/1 'Public Sans',sans-serif;color:#7a746c">{{ m.label }}</span>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+            <div style="background:#fff;border:1px solid #e6e3de;border-radius:16px;padding:20px">
+              <div style="display:flex;align-items:center;justify-content:space-between">
+                <div style="font:600 10.5px/1 'Public Sans',sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#8d8880">Needs attention</div>
+                <span style="padding:5px 10px;border-radius:999px;background:#f6f1e4;font:700 11.5px/1 'Public Sans',sans-serif;color:#5d4a1c">6 active</span>
+              </div>
+              <div style="margin-top:8px">
+                <sc-for list="{{ alertsShort }}" as="a" hint-placeholder-count="3">
+                  <div style="display:flex;gap:11px;align-items:center;padding:12px 0;border-top:1px solid #f0eee9">
+                    <div style="width:6px;height:6px;border-radius:50%;background:{{ a.dot }};flex:none"></div>
+                    <div style="flex:1;font:500 13px/1.4 'Public Sans',sans-serif;color:#1a1917">{{ a.text }}</div>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+            <div style="background:#fff;border:1px solid #e6e3de;border-radius:16px;padding:20px">
+              <div style="font:600 10.5px/1 'Public Sans',sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#8d8880">Recent sales</div>
+              <div style="margin-top:6px">
+                <sc-for list="{{ ordersShort }}" as="o" hint-placeholder-count="3">
+                  <div style="display:flex;align-items:center;gap:11px;padding:12px 0;border-top:1px solid #f0eee9">
+                    <div style="width:22px;height:22px;border-radius:6px;display:inline-flex;align-items:center;justify-content:center;color:#fff;font:800 12.1px/1 'Public Sans',sans-serif;flex:none;background:{{ o.mpColor }}">{{ o.mpShort }}</div>
+                    <div style="flex:1;min-width:0">
+                      <div style="font:600 13px/1.3 'Public Sans',sans-serif;color:#1a1917;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ o.title }}</div>
+                      <div style="font:400 11.5px/1.4 'Public Sans',sans-serif;color:#8d8880">{{ o.meta }}</div>
+                    </div>
+                    <div style="font:600 13px/1 'Public Sans',sans-serif;color:#1a1917;flex:none">{{ o.price }}</div>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+          </div>
+          <div style="height:64px;background:#fff;border-top:1px solid #e6e3de;display:flex;justify-content:center;gap:4px">
+            <sc-for list="{{ tabsB }}" as="t" hint-placeholder-count="5">
+              <div style="flex:1;max-width:120px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;font:600 11.5px/1 'Public Sans',sans-serif;color:{{ t.color }}">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="{{ t.d }}"></path></svg>
+                <span>{{ t.label }}</span>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="display:flex;flex-direction:column;gap:28px;padding:40px">
+  <div style="display:flex;align-items:baseline;gap:14px">
+    <span style="display:inline-flex;align-items:center;height:26px;padding:0 10px;border-radius:999px;background:#1a1917;color:#faf9f8;font:600 12px/1 'Public Sans',sans-serif;letter-spacing:.04em">1a</span>
+    <span style="font:400 20px/1 Newsreader,serif;color:#3d3a35">Flow — Home, desktop &amp; mobile</span>
+  </div>
+
+  <div style="display:flex;gap:32px;align-items:flex-start">
+
+    <!-- ============ DESKTOP ============ -->
+    <div id="1a" style="width:1440px;flex:none;background:#faf9f8;border:1px solid #ddd9d3;border-radius:18px;overflow:hidden;box-shadow:0 24px 60px -30px rgba(26,25,23,.35)">
+
+      <!-- top bar -->
+      <div style="display:flex;align-items:center;gap:40px;padding:0 32px;height:68px;background:#faf9f8;border-bottom:1px solid #e6e3de;position:relative">
+        <div style="display:flex;align-items:center;gap:11px">
+          <div style="width:26px;height:26px;border-radius:8px;background:#1a1917;display:flex;align-items:center;justify-content:center;color:#faf9f8;font:400 15px/1 Newsreader,serif">F</div>
+          <div style="font:400 22px/1 Newsreader,serif;letter-spacing:-.01em;color:#1a1917">Flow</div>
+        </div>
+        <div style="display:flex;gap:4px">
+          <div style="padding:7px 13px;border-radius:8px;background:#1a1917;color:#faf9f8;font:600 13.5px/1 'Public Sans',sans-serif">Home</div>
+          <div style="padding:7px 13px;border-radius:8px;color:#57534c;font:500 13.5px/1 'Public Sans',sans-serif" style-hover="background:#f0eee9">Inventory</div>
+          <div style="padding:7px 13px;border-radius:8px;color:#57534c;font:500 13.5px/1 'Public Sans',sans-serif" style-hover="background:#f0eee9">Analytics</div>
+          <div style="padding:7px 13px;border-radius:8px;color:#57534c;font:500 13.5px/1 'Public Sans',sans-serif" style-hover="background:#f0eee9">Automation</div>
+          <div style="padding:7px 13px;border-radius:8px;color:#57534c;font:500 13.5px/1 'Public Sans',sans-serif" style-hover="background:#f0eee9">Settings</div>
+        </div>
+        <div style="margin-left:auto;display:flex;align-items:center;gap:12px">
+          <div style="display:flex;align-items:center;gap:7px;padding:6px 11px;border-radius:999px;background:#f0eee9;border:1px solid #e6e3de">
+            <div style="width:7px;height:7px;border-radius:50%;background:oklch(.62 .14 150)"></div>
+            <span style="font:600 12px/1 'Public Sans',sans-serif;color:#57534c">3 shops synced</span>
+          </div>
+          <div style="padding:9px 16px;border-radius:9px;background:oklch(.68 .13 80);color:#231b08;font:700 13.5px/1 'Public Sans',sans-serif" style-hover="background:oklch(.63 .13 80)">List an item</div>
+        </div>
+      </div>
+
+      <div style="padding:30px 32px 36px;display:flex;flex-direction:column;gap:20px">
+
+        <!-- greeting -->
+        <div style="display:flex;align-items:flex-end;justify-content:space-between">
+          <div>
+            <div style="font:400 34px/1.1 Newsreader,serif;letter-spacing:-.02em;color:#1a1917">Good morning, Renata</div>
+            <div style="margin-top:7px;font:400 14.5px/1 'Public Sans',sans-serif;color:#7a746c">Tuesday, August 25 · Day 22 of 31</div>
+          </div>
+          <div style="display:flex;gap:8px">
+            <div style="padding:8px 14px;border-radius:8px;border:1px solid #ddd9d3;background:#fff;font:600 13px/1 'Public Sans',sans-serif;color:#3d3a35">Run sharer</div>
+            <div style="padding:8px 14px;border-radius:8px;border:1px solid #ddd9d3;background:#fff;font:600 13px/1 'Public Sans',sans-serif;color:#3d3a35">Send offers</div>
+            <div style="padding:8px 14px;border-radius:8px;border:1px solid #ddd9d3;background:#fff;font:600 13px/1 'Public Sans',sans-serif;color:#3d3a35">Import orders</div>
+          </div>
+        </div>
+
+        <!-- pace + attention -->
+        <div style="display:grid;grid-template-columns:1fr 460px;gap:20px;align-items:stretch">
+
+          <!-- PACE -->
+          <div style="background:#fff;border:1px solid #e6e3de;border-radius:16px;padding:26px 28px;display:flex;flex-direction:column;gap:22px">
+            <div style="display:flex;align-items:flex-start;justify-content:space-between">
+              <div>
+                <div style="font:600 11px/1 'Public Sans',sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#8d8880">{{ periodLabel }} pace</div>
+                <div style="margin-top:12px;display:flex;align-items:baseline;gap:12px">
+                  <div style="font:400 52px/1 Newsreader,serif;letter-spacing:-.02em;color:#1a1917">$9,240</div>
+                  <div style="font:400 18px/1 'Public Sans',sans-serif;color:#8d8880">of $12,000</div>
+                </div>
+                <div style="margin-top:10px;font:400 14.5px/1.5 'Public Sans',sans-serif;color:#57534c;max-width:44ch">{{ paceSentence }}</div>
+              </div>
+              <div style="display:flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;background:#f6f1e4;border:1px solid #e8ddc2">
+                <div style="width:8px;height:8px;border-radius:50%;background:oklch(.68 .13 80)"></div>
+                <span style="font:700 13px/1 'Public Sans',sans-serif;color:#5d4a1c">{{ paceLabel }}</span>
+              </div>
+            </div>
+
+            <!-- bar -->
+            <div>
+              <div style="position:relative;height:14px;border-radius:999px;background:#f0eee9;overflow:hidden">
+                <div style="position:absolute;inset:0 23% 0 0;background:oklch(.68 .13 80);border-radius:999px"></div>
+              </div>
+              <div style="position:relative;height:22px;margin-top:6px">
+                <div style="position:absolute;left:71%;top:-26px;width:2px;height:26px;background:#1a1917"></div>
+                <div style="position:absolute;left:71%;transform:translateX(-50%);font:600 11.5px/1 'Public Sans',sans-serif;color:#1a1917;white-space:nowrap">Today · 71% of month</div>
+              </div>
+            </div>
+
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#e6e3de;border:1px solid #e6e3de;border-radius:12px;overflow:hidden">
+              <div style="background:#fff;padding:16px 18px">
+                <div style="font:600 11px/1 'Public Sans',sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#8d8880">Items sold</div>
+                <div style="margin-top:9px;display:flex;align-items:baseline;gap:6px">
+                  <span style="font:400 27px/1 Newsreader,serif;color:#1a1917">68</span>
+                  <span style="font:400 14px/1 'Public Sans',sans-serif;color:#8d8880">/ 90</span>
+                </div>
+                <div style="margin-top:9px;font:600 12.5px/1 'Public Sans',sans-serif;color:oklch(.52 .12 150)">+3 vs pace</div>
+              </div>
+              <div style="background:#fff;padding:16px 18px">
+                <div style="font:600 11px/1 'Public Sans',sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#8d8880">Profit</div>
+                <div style="margin-top:9px;display:flex;align-items:baseline;gap:6px">
+                  <span style="font:400 27px/1 Newsreader,serif;color:#1a1917">$5,120</span>
+                  <span style="font:400 14px/1 'Public Sans',sans-serif;color:#8d8880">/ $6,500</span>
+                </div>
+                <div style="margin-top:9px;font:600 12.5px/1 'Public Sans',sans-serif;color:oklch(.52 .12 150)">55% margin</div>
+              </div>
+              <div style="background:#fff;padding:16px 18px">
+                <div style="font:600 11px/1 'Public Sans',sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#8d8880">New listings</div>
+                <div style="margin-top:9px;display:flex;align-items:baseline;gap:6px">
+                  <span style="font:400 27px/1 Newsreader,serif;color:#1a1917">41</span>
+                  <span style="font:400 14px/1 'Public Sans',sans-serif;color:#8d8880">/ 150</span>
+                </div>
+                <div style="margin-top:9px;font:600 12.5px/1 'Public Sans',sans-serif;color:oklch(.55 .16 30)">64 behind pace</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- NEEDS ATTENTION -->
+          <div style="background:#fff;border:1px solid #e6e3de;border-radius:16px;padding:24px 26px;display:flex;flex-direction:column">
+            <div style="display:flex;align-items:center;justify-content:space-between">
+              <div style="font:600 11px/1 'Public Sans',sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#8d8880">Needs attention</div>
+              <div style="font:700 11.5px/1 'Public Sans',sans-serif;color:#b03a1a;background:#fbeee9;padding:5px 9px;border-radius:999px">4 open</div>
+            </div>
+            <div style="margin-top:18px;display:flex;flex-direction:column">
+              <sc-for list="{{ attention }}" as="row" hint-placeholder-count="4">
+                <div style="display:flex;gap:14px;align-items:flex-start;padding:15px 0;border-top:1px solid #f0eee9">
+                  <div style="width:6px;height:6px;border-radius:50%;background:oklch(.68 .13 80);margin-top:7px;flex:none"></div>
+                  <div style="flex:1;min-width:0">
+                    <div style="font:600 14.5px/1.35 'Public Sans',sans-serif;color:#1a1917">{{ row.title }}</div>
+                    <div style="margin-top:4px;font:400 13px/1.4 'Public Sans',sans-serif;color:#7a746c">{{ row.meta }}</div>
+                  </div>
+                  <div style="flex:none;padding:7px 12px;border-radius:8px;border:1px solid #ddd9d3;font:600 12.5px/1 'Public Sans',sans-serif;color:#3d3a35;white-space:nowrap" style-hover="background:#f6f1e4;border-color:#e8ddc2">{{ row.action }}</div>
+                </div>
+              </sc-for>
+            </div>
+            <div style="margin-top:auto;padding-top:16px;border-top:1px solid #f0eee9;display:flex;justify-content:space-between;align-items:center">
+              <span style="font:400 13px/1 'Public Sans',sans-serif;color:#8d8880">Dismissed this week · 11</span>
+              <a href="#1a" style="font:600 13px/1 'Public Sans',sans-serif">Review all</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- TODAY'S SUMMARY strip -->
+        <div style="background:#fff;border:1px solid #e6e3de;border-radius:16px;padding:22px 26px">
+          <div style="display:flex;align-items:baseline;gap:12px">
+            <div style="font:600 11px/1 'Public Sans',sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#8d8880">Today so far</div>
+            <div style="font:400 13px/1 'Public Sans',sans-serif;color:#a09a91">Updated 14 minutes ago</div>
+          </div>
+          <div style="margin-top:18px;display:grid;grid-template-columns:1fr 1fr;gap:32px">
+            <div style="display:flex;flex-direction:column;gap:14px">
+              <span style="font:600 10.5px/1 'Public Sans',sans-serif;letter-spacing:.09em;text-transform:uppercase;color:#a09a91">Automation</span>
+              <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:22px">
+                <sc-for list="{{ todayAutomation }}" as="m" hint-placeholder-count="4">
+                  <div style="display:flex;flex-direction:column;gap:7px;padding-left:16px;border-left:1px solid #e6e3de">
+                    <span style="font:400 30px/1 Newsreader,serif;color:#1a1917">{{ m.value }}</span>
+                    <span style="font:500 13px/1 'Public Sans',sans-serif;color:#57534c">{{ m.label }}</span>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:14px">
+              <span style="font:600 10.5px/1 'Public Sans',sans-serif;letter-spacing:.09em;text-transform:uppercase;color:#a09a91">Analytics</span>
+              <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:22px">
+                <sc-for list="{{ todayAnalytics }}" as="m" hint-placeholder-count="4">
+                  <div style="display:flex;flex-direction:column;gap:7px;padding-left:16px;border-left:1px solid #e6e3de">
+                    <span style="font:400 30px/1 Newsreader,serif;color:#1a1917">{{ m.value }}</span>
+                    <span style="font:500 13px/1 'Public Sans',sans-serif;color:#57534c">{{ m.label }}</span>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- three columns -->
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px">
+
+          <!-- recent sales -->
+          <div style="background:#fff;border:1px solid #e6e3de;border-radius:16px;padding:24px 26px">
+            <div style="display:flex;align-items:center;justify-content:space-between">
+              <div style="font:600 11px/1 'Public Sans',sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#8d8880">Recent sales</div>
+              <a href="#1a" style="font:600 12.5px/1 'Public Sans',sans-serif">All activity</a>
+            </div>
+            <div style="margin-top:14px;display:flex;flex-direction:column">
+              <sc-for list="{{ sales }}" as="s" hint-placeholder-count="5">
+                <div style="display:flex;align-items:center;gap:12px;padding:13px 0;border-top:1px solid #f0eee9">
+                  <div style="width:38px;height:38px;border-radius:8px;background:repeating-linear-gradient(135deg,#f0eee9 0 5px,#e8e5df 5px 10px);flex:none"></div>
+                  <div style="flex:1;min-width:0">
+                    <div style="font:600 14px/1.3 'Public Sans',sans-serif;color:#1a1917;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ s.item }}</div>
+                    <div style="margin-top:3px;font:400 12.5px/1 'Public Sans',sans-serif;color:#8d8880">{{ s.meta }}</div>
+                  </div>
+                  <div style="text-align:right;flex:none">
+                    <div style="font:600 14px/1 'Public Sans',sans-serif;color:#1a1917">{{ s.price }}</div>
+                    <div style="margin-top:3px;font:400 12.5px/1 'Public Sans',sans-serif;color:oklch(.52 .12 150)">{{ s.profit }}</div>
+                  </div>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+
+          <!-- top listings -->
+          <div style="background:#fff;border:1px solid #e6e3de;border-radius:16px;padding:24px 26px">
+            <div style="display:flex;align-items:center;justify-content:space-between">
+              <div style="font:600 11px/1 'Public Sans',sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#8d8880">Top performers</div>
+              <span style="font:400 12.5px/1 'Public Sans',sans-serif;color:#a09a91">7 days</span>
+            </div>
+            <div style="margin-top:14px;display:flex;flex-direction:column">
+              <sc-for list="{{ top }}" as="t" hint-placeholder-count="4">
+                <div style="display:flex;align-items:center;gap:12px;padding:13px 0;border-top:1px solid #f0eee9">
+                  <div style="width:38px;height:38px;border-radius:8px;background:repeating-linear-gradient(135deg,#f0eee9 0 5px,#e8e5df 5px 10px);flex:none"></div>
+                  <div style="flex:1;min-width:0">
+                    <div style="font:600 14px/1.3 'Public Sans',sans-serif;color:#1a1917;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ t.item }}</div>
+                    <div style="margin-top:3px;font:400 12.5px/1 'Public Sans',sans-serif;color:#8d8880">{{ t.meta }}</div>
+                  </div>
+                  <div style="flex:none;font:600 13.5px/1 'Public Sans',sans-serif;color:#1a1917">{{ t.price }}</div>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+
+          <!-- automation + aging -->
+          <div style="display:flex;flex-direction:column;gap:20px">
+            <div style="background:#1a1917;border-radius:16px;padding:24px 26px">
+              <div style="display:flex;align-items:center;justify-content:space-between">
+                <div style="font:600 11px/1 'Public Sans',sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#a5a09a">Automation</div>
+                <span style="font:400 12.5px/1 'Public Sans',sans-serif;color:#a5a09a">Last run 14m ago</span>
+              </div>
+              <div style="margin-top:16px;display:flex;flex-direction:column;gap:12px">
+                <sc-for list="{{ automations }}" as="a" hint-placeholder-count="3">
+                  <div style="display:flex;align-items:center;gap:12px">
+                    <div style="width:7px;height:7px;border-radius:50%;background:{{ a.dot }};flex:none"></div>
+                    <div style="flex:1;font:500 14px/1 'Public Sans',sans-serif;color:#faf9f8">{{ a.name }}</div>
+                    <div style="font:400 13px/1 'Public Sans',sans-serif;color:#a5a09a">{{ a.status }}</div>
+                  </div>
+                </sc-for>
+              </div>
+              <div style="margin-top:20px;padding:10px 0;border-top:1px solid #33312d;display:flex;justify-content:space-between;align-items:center">
+                <span style="font:400 13px/1 'Public Sans',sans-serif;color:#a5a09a">Queued actions</span>
+                <span style="font:400 22px/1 Newsreader,serif;color:#faf9f8">1,284</span>
+              </div>
+            </div>
+
+            <div style="background:#fff;border:1px solid #e6e3de;border-radius:16px;padding:24px 26px;flex:1">
+              <div style="font:600 11px/1 'Public Sans',sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#8d8880">Inventory aging</div>
+              <div style="margin-top:16px;display:flex;flex-direction:column;gap:13px">
+                <sc-for list="{{ aging }}" as="g" hint-placeholder-count="4">
+                  <div style="display:flex;align-items:center;gap:14px">
+                    <div style="width:74px;flex:none;font:500 13px/1 'Public Sans',sans-serif;color:#57534c">{{ g.bucket }}</div>
+                    <div style="flex:1;height:8px;border-radius:999px;background:#f0eee9;overflow:hidden">
+                      <div style="height:100%;width:{{ g.pct }};background:#c9c3b8;border-radius:999px"></div>
+                    </div>
+                    <div style="width:34px;text-align:right;flex:none;font:600 13px/1 'Public Sans',sans-serif;color:#1a1917">{{ g.count }}</div>
+                  </div>
+                </sc-for>
+              </div>
+              <div style="margin-top:18px;padding-top:14px;border-top:1px solid #f0eee9;font:400 13px/1.5 'Public Sans',sans-serif;color:#7a746c">37 items sitting past 90 days. A 10% drop clears most of them.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ MOBILE ============ -->
+    <div style="width:390px;flex:none;background:#faf9f8;border:1px solid #ddd9d3;border-radius:34px;overflow:hidden;box-shadow:0 24px 60px -30px rgba(26,25,23,.35)">
+      <div style="height:44px;display:flex;align-items:flex-end;justify-content:space-between;padding:0 24px 6px;font:600 13px/1 'Public Sans',sans-serif;color:#1a1917">
+        <span>9:41</span><span style="letter-spacing:.12em;color:#8d8880">▮▮▮</span>
+      </div>
+
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:8px 20px 14px">
+        <div style="display:flex;align-items:center;gap:9px">
+          <div style="width:24px;height:24px;border-radius:7px;background:#1a1917;display:flex;align-items:center;justify-content:center;color:#faf9f8;font:400 14px/1 Newsreader,serif">F</div>
+          <span style="font:400 20px/1 Newsreader,serif;color:#1a1917">Flow</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:7px;padding:6px 11px;border-radius:999px;background:#f0eee9">
+          <div style="width:6px;height:6px;border-radius:50%;background:oklch(.62 .14 150)"></div>
+          <span style="font:600 11.5px/1 'Public Sans',sans-serif;color:#57534c">3 synced</span>
+        </div>
+      </div>
+
+      <div style="padding:0 20px;display:flex;flex-direction:column;gap:14px">
+        <div>
+          <div style="font:400 26px/1.15 Newsreader,serif;color:#1a1917">Good morning, Renata</div>
+          <div style="margin-top:5px;font:400 13px/1 'Public Sans',sans-serif;color:#8d8880">Day 22 of 31</div>
+        </div>
+
+        <!-- pace card -->
+        <div style="background:#fff;border:1px solid #e6e3de;border-radius:16px;padding:20px">
+          <div style="display:flex;align-items:center;justify-content:space-between">
+            <div style="font:600 10.5px/1 'Public Sans',sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#8d8880">{{ periodLabel }} pace</div>
+            <div style="display:flex;align-items:center;gap:7px;padding:6px 11px;border-radius:999px;background:#f6f1e4;border:1px solid #e8ddc2">
+              <div style="width:7px;height:7px;border-radius:50%;background:oklch(.68 .13 80)"></div>
+              <span style="font:700 11.5px/1 'Public Sans',sans-serif;color:#5d4a1c">{{ paceLabel }}</span>
+            </div>
+          </div>
+          <div style="margin-top:12px;display:flex;align-items:baseline;gap:9px">
+            <span style="font:400 40px/1 Newsreader,serif;color:#1a1917">$9,240</span>
+            <span style="font:400 15px/1 'Public Sans',sans-serif;color:#8d8880">of $12,000</span>
+          </div>
+          <div style="margin-top:14px;position:relative;height:12px;border-radius:999px;background:#f0eee9;overflow:hidden">
+            <div style="position:absolute;inset:0 23% 0 0;background:oklch(.68 .13 80);border-radius:999px"></div>
+          </div>
+          <div style="position:relative;height:20px;margin-top:5px">
+            <div style="position:absolute;left:71%;top:-24px;width:2px;height:24px;background:#1a1917"></div>
+            <div style="position:absolute;left:71%;transform:translateX(-50%);font:600 11px/1 'Public Sans',sans-serif;color:#1a1917;white-space:nowrap">Today</div>
+          </div>
+          <div style="margin-top:6px;font:400 13.5px/1.5 'Public Sans',sans-serif;color:#57534c">{{ paceSentence }}</div>
+          <div style="margin-top:16px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:#e6e3de;border:1px solid #e6e3de;border-radius:11px;overflow:hidden">
+            <div style="background:#fff;padding:12px 11px">
+              <div style="font:600 10px/1 'Public Sans',sans-serif;letter-spacing:.07em;text-transform:uppercase;color:#a09a91">Sold</div>
+              <div style="margin-top:7px;font:400 21px/1 Newsreader,serif;color:#1a1917">68</div>
+              <div style="margin-top:5px;font:600 11.5px/1 'Public Sans',sans-serif;color:oklch(.52 .12 150)">+3</div>
+            </div>
+            <div style="background:#fff;padding:12px 11px">
+              <div style="font:600 10px/1 'Public Sans',sans-serif;letter-spacing:.07em;text-transform:uppercase;color:#a09a91">Profit</div>
+              <div style="margin-top:7px;font:400 21px/1 Newsreader,serif;color:#1a1917">$5.1k</div>
+              <div style="margin-top:5px;font:600 11.5px/1 'Public Sans',sans-serif;color:oklch(.52 .12 150)">55%</div>
+            </div>
+            <div style="background:#fff;padding:12px 11px">
+              <div style="font:600 10px/1 'Public Sans',sans-serif;letter-spacing:.07em;text-transform:uppercase;color:#a09a91">Listed</div>
+              <div style="margin-top:7px;font:400 21px/1 Newsreader,serif;color:#1a1917">41</div>
+              <div style="margin-top:5px;font:600 11.5px/1 'Public Sans',sans-serif;color:oklch(.55 .16 30)">−64</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- quick actions -->
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+          <div style="padding:14px;border-radius:12px;background:oklch(.68 .13 80);color:#231b08;font:700 14px/1 'Public Sans',sans-serif;text-align:center">List an item</div>
+          <div style="padding:14px;border-radius:12px;background:#fff;border:1px solid #ddd9d3;color:#3d3a35;font:600 14px/1 'Public Sans',sans-serif;text-align:center">Run sharer</div>
+        </div>
+
+        <!-- attention -->
+        <div style="background:#fff;border:1px solid #e6e3de;border-radius:16px;padding:20px">
+          <div style="display:flex;align-items:center;justify-content:space-between">
+            <div style="font:600 10.5px/1 'Public Sans',sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#8d8880">Needs attention</div>
+            <div style="font:700 11px/1 'Public Sans',sans-serif;color:#b03a1a;background:#fbeee9;padding:5px 8px;border-radius:999px">4 open</div>
+          </div>
+          <div style="margin-top:12px;display:flex;flex-direction:column">
+            <sc-for list="{{ attentionShort }}" as="row" hint-placeholder-count="3">
+              <div style="display:flex;gap:11px;align-items:flex-start;padding:13px 0;border-top:1px solid #f0eee9">
+                <div style="width:6px;height:6px;border-radius:50%;background:oklch(.68 .13 80);margin-top:6px;flex:none"></div>
+                <div style="flex:1;min-width:0">
+                  <div style="font:600 13.5px/1.35 'Public Sans',sans-serif;color:#1a1917">{{ row.title }}</div>
+                  <div style="margin-top:3px;font:400 12.5px/1.4 'Public Sans',sans-serif;color:#8d8880">{{ row.meta }}</div>
+                </div>
+                <div style="flex:none;font:600 12px/1 'Public Sans',sans-serif;color:oklch(.5 .13 80)">{{ row.action }}</div>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+
+        <!-- today strip -->
+        <div style="background:#fff;border:1px solid #e6e3de;border-radius:16px;padding:20px">
+          <div style="font:600 10.5px/1 'Public Sans',sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#8d8880">Today so far</div>
+          <div style="margin-top:14px;display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:14px">
+            <sc-for list="{{ todayShort }}" as="m" hint-placeholder-count="4">
+              <div style="display:flex;flex-direction:column;gap:5px">
+                <span style="font:400 22px/1 Newsreader,serif;color:#1a1917">{{ m.value }}</span>
+                <span style="font:500 11.5px/1 'Public Sans',sans-serif;color:#7a746c">{{ m.label }}</span>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+
+        <!-- recent sales -->
+        <div style="background:#fff;border:1px solid #e6e3de;border-radius:16px;padding:20px">
+          <div style="display:flex;align-items:center;justify-content:space-between">
+            <div style="font:600 10.5px/1 'Public Sans',sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#8d8880">Recent sales</div>
+            <a href="#1a" style="font:600 12px/1 'Public Sans',sans-serif">All</a>
+          </div>
+          <div style="margin-top:10px;display:flex;flex-direction:column">
+            <sc-for list="{{ salesShort }}" as="s" hint-placeholder-count="3">
+              <div style="display:flex;align-items:center;gap:11px;padding:12px 0;border-top:1px solid #f0eee9">
+                <div style="width:34px;height:34px;border-radius:8px;background:repeating-linear-gradient(135deg,#f0eee9 0 5px,#e8e5df 5px 10px);flex:none"></div>
+                <div style="flex:1;min-width:0">
+                  <div style="font:600 13.5px/1.3 'Public Sans',sans-serif;color:#1a1917;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ s.item }}</div>
+                  <div style="margin-top:2px;font:400 12px/1 'Public Sans',sans-serif;color:#8d8880">{{ s.meta }}</div>
+                </div>
+                <div style="font:600 13.5px/1 'Public Sans',sans-serif;color:#1a1917;flex:none">{{ s.price }}</div>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+
+        <!-- automation -->
+        <div style="background:#1a1917;border-radius:16px;padding:20px">
+          <div style="display:flex;align-items:center;justify-content:space-between">
+            <div style="font:600 10.5px/1 'Public Sans',sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#a5a09a">Automation</div>
+            <span style="font:400 12px/1 'Public Sans',sans-serif;color:#a5a09a">14m ago</span>
+          </div>
+          <div style="margin-top:14px;display:flex;flex-direction:column;gap:11px">
+            <sc-for list="{{ automations }}" as="a" hint-placeholder-count="3">
+              <div style="display:flex;align-items:center;gap:11px">
+                <div style="width:6px;height:6px;border-radius:50%;background:{{ a.dot }};flex:none"></div>
+                <div style="flex:1;font:500 13.5px/1 'Public Sans',sans-serif;color:#faf9f8">{{ a.name }}</div>
+                <div style="font:400 12.5px/1 'Public Sans',sans-serif;color:#a5a09a">{{ a.status }}</div>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:20px;display:flex;justify-content:space-between;padding:14px 30px 22px;border-top:1px solid #e6e3de;background:#faf9f8">
+        <span style="font:700 11.5px/1 'Public Sans',sans-serif;color:#1a1917">Home</span>
+        <span style="font:500 11.5px/1 'Public Sans',sans-serif;color:#a09a91">Inventory</span>
+        <span style="font:500 11.5px/1 'Public Sans',sans-serif;color:#a09a91">Analytics</span>
+        <span style="font:500 11.5px/1 'Public Sans',sans-serif;color:#a09a91">Automation</span>
+      </div>
+    </div>
+  </div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;period&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;August&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Content&quot;},&quot;paceState&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Ahead of pace&quot;,&quot;On pace&quot;,&quot;Behind pace&quot;],&quot;default&quot;:&quot;Ahead of pace&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Content&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const pace = this.props.paceState ?? "Ahead of pace";
+    const sentences = {
+      "Ahead of pace": "You're $718 ahead of where you need to be. Listing volume is the only thing lagging.",
+      "On pace": "Right on the line for the month. Listing volume is the only thing lagging.",
+      "Behind pace": "You're $1,240 short of pace with 9 days left. Listing volume is the gap."
+    };
+    const attention = [
+      { title: "3 offers expire in 2 hours", meta: "Nike Tech Fleece, Patagonia Snap-T, +1 · Poshmark", action: "Counter" },
+      { title: "12 listings fell out of search", meta: "Not shared in 6 days · Poshmark", action: "Relist" },
+      { title: "Price drop suggested on 5 items", meta: "90+ days, no views this week", action: "Review" },
+      { title: "1 order ships today", meta: "Levi's 501 · Depop · label unprinted", action: "Print" }
+    ];
+    const today = [
+      { group: "Automation", value: "4,820", label: "Shares" },
+      { group: "Automation", value: "96", label: "Relists" },
+      { group: "Automation", value: "312", label: "Offers sent" },
+      { group: "Automation", value: "1,140", label: "Follows" },
+      { group: "Analytics", value: "7", label: "Listed" },
+      { group: "Analytics", value: "4", label: "Sold" },
+      { group: "Analytics", value: "$412", label: "Revenue" },
+      { group: "Analytics", value: "$228", label: "Profit" }
+    ];
+    const sales = [
+      { item: "Patagonia Retro-X fleece", meta: "Poshmark · 2h ago", price: "$148", profit: "+$92" },
+      { item: "Sony WH-1000XM4", meta: "eBay · 5h ago", price: "$132", profit: "+$61" },
+      { item: "Levi's 501 · 32×32", meta: "Depop · 7h ago", price: "$54", profit: "+$38" },
+      { item: "Nike Tech Fleece hoodie", meta: "Poshmark · yesterday", price: "$78", profit: "+$44" },
+      { item: "Le Creuset 5.5qt Dutch oven", meta: "eBay · yesterday", price: "$205", profit: "+$121" }
+    ];
+    const top = [
+      { item: "Carhartt Detroit jacket", meta: "412 views · 38 likes", price: "$165" },
+      { item: "Arc'teryx Beta AR shell", meta: "388 views · 51 likes", price: "$340" },
+      { item: "Vintage Pyrex mixing set", meta: "301 views · 22 likes", price: "$85" },
+      { item: "Dr. Martens 1460 · 9", meta: "277 views · 19 likes", price: "$96" }
+    ];
+    const alerts = [
+      { text: '"Carhartt Detroit jacket" is marked ready to list.', dot: "oklch(.68 .13 80)" },
+      { text: '"Vintage Pyrex mixing set" has been listed for over 30 days — consider relisting or dropping the price.', dot: "oklch(.68 .13 80)" },
+      { text: '"Dr. Martens 1460 · 9" has been listed for over 30 days — consider relisting or dropping the price.', dot: "oklch(.68 .13 80)" },
+      { text: '"Sony WH-1000XM4" is missing its cost of goods.', dot: "#c9c3b8" }
+    ];
+    const orders = [
+      { title: "Patagonia Retro-X fleece", meta: "Poshmark · Aug 25", price: "$68", profit: "+$41", mpShort: "P", mpColor: "#7f0353" },
+      { title: "Levi's 501 · 32×32", meta: "Depop · Aug 25", price: "$44", profit: "+$29", mpShort: "D", mpColor: "#ff2300" },
+      { title: "Corelle 12-piece set", meta: "eBay · Aug 25", price: "$30", profit: "+$17", mpShort: "e", mpColor: "#e53238" },
+      { title: "Nike Tech Fleece hoodie", meta: "Poshmark · Aug 24", price: "$78", profit: "+$44", mpShort: "P", mpColor: "#7f0353" }
+    ];
+    const tabNames = [
+      { label: "Home", d: "M3 10.5L12 3l9 7.5M5 9.5V20a1 1 0 001 1h4v-6h4v6h4a1 1 0 001-1V9.5" },
+      { label: "Inventory", d: "M4 4h16v5H4zM4 9v10a1 1 0 001 1h14a1 1 0 001-1V9M9 13h6" },
+      { label: "Analytics", d: "M4 19h16M5 15l4-5 3 3 6-8" },
+      { label: "Automation", d: "M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z" },
+      { label: "Settings", d: "M12 15a3 3 0 100-6 3 3 0 000 6zM19 12a7 7 0 00-.1-1.2l2-1.6-2-3.4-2.4 1a7 7 0 00-2-1.2L14 3h-4l-.5 2.6a7 7 0 00-2 1.2l-2.4-1-2 3.4 2 1.6A7 7 0 005 12c0 .4 0 .8.1 1.2l-2 1.6 2 3.4 2.4-1a7 7 0 002 1.2L10 21h4l.5-2.6a7 7 0 002-1.2l2.4 1 2-3.4-2-1.6c.1-.4.1-.8.1-1.2z" }
+    ];
+    return {
+      repoAuto: [
+        { value: "1,284", label: "Shares" },
+        { value: "22", label: "Relists" },
+        { value: "96", label: "Offers" },
+        { value: "310", label: "Follows" }
+      ],
+      todayReal: [
+        { value: "$142", label: "Revenue" },
+        { value: "$87", label: "Profit" },
+        { value: "3", label: "Sold" },
+        { value: "5", label: "Listed" }
+      ],
+      inventory: [
+        { value: "12", label: "Drafts" },
+        { value: "86", label: "Listed" },
+        { value: "47", label: "Sold" }
+      ],
+      alerts,
+      alertsShort: alerts.slice(0, 3),
+      orders,
+      ordersShort: orders.slice(0, 3),
+      tabs: tabNames.map((t, i) => ({ ...t, color: i === 0 ? "#0d9488" : "#64748b" })),
+      tabsB: tabNames.map((t, i) => ({ ...t, color: i === 0 ? "#1a1917" : "#a09a91" })),
+      periodLabel: this.props.period ?? "August",
+      paceLabel: pace,
+      paceSentence: sentences[pace] ?? sentences["Ahead of pace"],
+      attention,
+      attentionShort: attention.slice(0, 3),
+      today,
+      todayAutomation: today.slice(0, 4),
+      todayAnalytics: today.slice(4),
+      todayShort: [
+        { value: "4,820", label: "Shares" },
+        { value: "312", label: "Offers" },
+        { value: "4", label: "Sold" },
+        { value: "$412", label: "Revenue" }
+      ],
+      sales,
+      salesShort: sales.slice(0, 3),
+      top,
+      automations: [
+        { name: "Sharer", status: "Running · 3 shops", dot: "oklch(.68 .13 80)" },
+        { name: "Auto-offer", status: "On · 10% + free ship", dot: "oklch(.68 .13 80)" },
+        { name: "Relister", status: "Paused", dot: "#5c5852" }
+      ],
+      aging: [
+        { bucket: "0–30 days", count: "148", pct: "82%" },
+        { bucket: "31–60", count: "71", pct: "40%" },
+        { bucket: "61–90", count: "44", pct: "25%" },
+        { bucket: "90+", count: "37", pct: "21%" }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>
