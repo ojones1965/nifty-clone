@@ -86,15 +86,42 @@ export default function Home() {
   const dismissedAlerts = allAlerts.filter((a) => dismissed.includes(a.key));
   const shown = alertTab === 'active' ? active : dismissedAlerts;
 
+  const dateLabel = new Date().toLocaleDateString('en-US', {
+    weekday: 'long',
+    month: 'long',
+    day: 'numeric',
+  });
+
   return (
     <div className="page">
       <header className="page-topbar">
-        <h1 className="topbar-title">Home</h1>
+        <div className="topbar-heading">
+          <h1 className="topbar-title">Home</h1>
+          <span className="topbar-date">{dateLabel}</span>
+        </div>
+        <Link to="/item/new" className="btn btn-primary">+ Add item</Link>
       </header>
 
       <section className="card summary-card">
         <h2>Today's summary</h2>
         <p className="card-sub">Your numbers at a glance</p>
+
+        <div className="stat-grid two">
+          <div className="hero-box">
+            <div className="hero-label">Revenue today</div>
+            <div className="hero-value">{moneyShort(revenueToday)}</div>
+          </div>
+          <div className="hero-box">
+            <div className="hero-label">Profit today</div>
+            <div className="hero-value profit">{moneyShort(profitToday)}</div>
+          </div>
+        </div>
+        <div className="stat-grid two">
+          <StatBox value={todaysOrders.length} label="Sold" />
+          <StatBox value={listedToday} label="Listed" />
+        </div>
+
+        <hr className="rule" />
 
         <div className="section-label">Automation</div>
         <div className="stat-grid">
@@ -103,24 +130,15 @@ export default function Home() {
           <StatBox value={auto.offers} label="Offers" />
           <StatBox value={auto.follows} label="Follows" />
         </div>
-
-        <hr className="rule" />
-
-        <div className="section-label">Analytics</div>
-        <div className="stat-grid">
-          <StatBox value={listedToday} label="Listed" />
-          <StatBox value={todaysOrders.length} label="Sold" />
-          <StatBox value={moneyShort(revenueToday)} label="Revenue" />
-          <StatBox value={moneyShort(profitToday)} label="Profit" />
-        </div>
       </section>
 
       <section className="card">
-        <h2>Goals</h2>
-        <p className="card-sub">Track your progress against the targets you set</p>
-        <button className="btn btn-outline" onClick={() => setEditingGoals(true)}>
-          Edit goals
-        </button>
+        <div className="card-head">
+          <h2>Goals</h2>
+          <button className="btn btn-outline btn-sm" onClick={() => setEditingGoals(true)}>
+            Edit goals
+          </button>
+        </div>
         {goals.monthlyRevenue == null && goals.monthlySales == null ? (
           <p className="card-note">Set time-based targets to measure your progress.</p>
         ) : (

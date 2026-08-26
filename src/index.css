@@ -67,6 +67,9 @@ textarea { resize: vertical; }
   white-space: nowrap;
 }
 .btn:disabled { opacity: 0.45; cursor: not-allowed; }
+.btn-sm { padding: 7px 13px; font-size: 13.5px; }
+a.btn, a.btn:hover { text-decoration: none; }
+a.btn-primary, a.btn-primary:hover { color: #fff; }
 .btn-primary { background: var(--accent); color: #fff; }
 .btn-primary:hover:not(:disabled) { background: var(--accent-hover); }
 .btn-outline {
@@ -248,7 +251,11 @@ textarea { resize: vertical; }
   min-height: 38px;
 }
 .topbar-title { font-size: 21px; }
+.topbar-heading { display: flex; align-items: baseline; gap: 10px; }
+.topbar-date { font-size: 13.5px; color: var(--text-muted); }
 .back-link { font-size: 13.5px; color: var(--text-muted); }
+.card-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.card-head h2 { margin: 0; }
 
 .card {
   background: var(--surface);
@@ -274,6 +281,19 @@ textarea { resize: vertical; }
 
 /* ---------- stat boxes ---------- */
 .stat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.stat-grid.two { grid-template-columns: repeat(2, 1fr); }
+.hero-box {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px 14px;
+  background: var(--accent-soft);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.hero-label { font-size: 12.5px; color: var(--text-muted); }
+.hero-value { font-size: 28px; font-weight: 700; line-height: 1.2; }
+.hero-value.profit { color: var(--accent-hover); }
 .stat-box {
   border: 1px solid var(--border);
   border-radius: 10px;
