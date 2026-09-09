@@ -1,0 +1,21 @@
+services:
+  web:
+    build: .
+    container_name: nifty-clone
+    ports:
+      - "8089:80"
+    restart: unless-stopped
+    depends_on:
+      - server
+  server:
+    build:
+      context: .
+      dockerfile: server/Dockerfile
+    container_name: nifty-clone-server
+    environment:
+      # Read from .env next to this file (compose loads it automatically) or
+      # from the shell. Generate one with: openssl rand -hex 24
+      FLOW_TOKEN: ${FLOW_TOKEN:?set FLOW_TOKEN in .env}
+    volumes:
+      - ./data:/data
+    restart: unless-stopped

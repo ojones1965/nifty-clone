@@ -23,3 +23,7 @@ dist-ssr
 *.sln
 *.sw?
 CLAUDE.local.md
+
+# Flow server secret and data volume (see DEPLOY.md)
+.env
+data/
