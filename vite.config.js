@@ -7,4 +7,12 @@ export default defineConfig({
   // subfolder (e.g. https://your-server/apps/flow/) on any static server.
   base: './',
   plugins: [react()],
+  // Lets `npm run dev` talk to a locally running server
+  // (FLOW_TOKEN=... PORT=3000 node server/index.js).
+  server: {
+    proxy: {
+      '/api': 'http://localhost:3000',
+      '/mcp': 'http://localhost:3000',
+    },
+  },
 })
