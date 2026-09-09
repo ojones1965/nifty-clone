@@ -1,13 +1,29 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getMarketplaces, MARKETPLACES } from '../lib/store';
+import { getSyncStatus, getSyncToken, setSyncToken } from '../lib/sync.js';
 import { useStoreVersion } from '../lib/useStore';
 import MarketBadge from '../components/MarketBadge';
+
+const SYNC_STATUS_LABEL = {
+  off: 'Off — data stays in this browser',
+  ok: 'Synced with the server',
+  unauthorized: 'Token rejected by the server',
+  offline: 'Server unreachable',
+};
 
 export default function Settings() {
   useStoreVersion();
 
   const { primary, accounts } = getMarketplaces();
   const connected = MARKETPLACES.filter((mp) => accounts[mp.id]?.connected);
+  const [token, setToken] = useState(getSyncToken());
+  const syncStatus = getSyncStatus();
+
+  function handleSaveToken(e) {
+    e.preventDefault();
+    setSyncToken(token.trim());
+  }
 
   function handleExport() {
     const dump = {};
@@ -46,6 +62,27 @@ export default function Settings() {
             </div>
           ))}
         </div>
+      </section>
+
+      <section className="card">
+        <div className="eyebrow">Server sync</div>
+        <p className="card-sub">
+          Paste the FLOW_TOKEN from the server to share data with the MCP endpoint and other devices.
+        </p>
+        <form className="field" onSubmit={handleSaveToken}>
+          <span>Token</span>
+          <input
+            type="password"
+            value={token}
+            onChange={(e) => setToken(e.target.value)}
+            autoComplete="off"
+            placeholder="leave empty to keep data local"
+          />
+          <div>
+            <button className="btn btn-outline" type="submit">Save</button>
+          </div>
+        </form>
+        <p className="card-sub">Status: {SYNC_STATUS_LABEL[syncStatus]}</p>
       </section>
 
       <section className="card">
