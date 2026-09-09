@@ -2,6 +2,20 @@
   "version": "0.0.1",
   "configurations": [
     {
+      "name": "server",
+      "runtimeExecutable": "env",
+      "runtimeArgs": ["FLOW_TOKEN=devtoken", "DATA_FILE=./data/dev.json", "PORT=3100", "node", "server/index.js"],
+      "port": 3100,
+      "autoPort": false
+    },
+    {
+      "name": "dev",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev", "--", "--port", "5173", "--strictPort"],
+      "port": 5173,
+      "autoPort": false
+    },
+    {
       "name": "preview",
       "runtimeExecutable": "npm",
       "runtimeArgs": ["run", "preview", "--", "--port", "4199", "--strictPort"],

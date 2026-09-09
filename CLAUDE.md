@@ -1,8 +1,9 @@
 # Flow (nifty-clone)
 
 Personal single-user reseller inventory dashboard. React 19 + Vite, hash
-routing, plain CSS in src/index.css, localStorage persistence — no backend,
-no auth, no sign-in.
+routing, plain CSS in src/index.css. localStorage is the working copy,
+optionally synced to a small Node server (server/) that also serves an MCP
+endpoint — no accounts, no sign-in.
 
 ## Commands
 
@@ -13,9 +14,10 @@ no auth, no sign-in.
 
 ## Deploy
 
-Static nginx container `nifty-clone` on LLMServer (10.0.0.147:8089), reachable
-via Tailscale at 100.105.58.19:8089. See DEPLOY.md for the one-liner: build
-locally, rsync Dockerfile/nginx.conf/dist, docker build+run on the server.
+Docker Compose on LLMServer (10.0.0.147:8089, Tailscale 100.105.58.19:8089):
+nginx container `nifty-clone` serving dist/ and proxying /api and /mcp to the
+`nifty-clone-server` Node container. See DEPLOY.md for the one-liner: build
+locally, rsync, `docker compose up -d --build` on the server.
 
 ## Key decisions
 
@@ -24,6 +26,12 @@ locally, rsync Dockerfile/nginx.conf/dist, docker build+run on the server.
   src/lib/store.js barrel — keep it that way.
 - Pages re-render via `useStoreVersion()` (useSyncExternalStore); don't add
   manual tick subscriptions.
+- server/ reuses src/lib unchanged via a file-backed localStorage shim; it
+  imports only from src/lib/store.js and src/lib/data.js. Business rules
+  never live in server/. Intra-src/lib imports keep their `.js` extensions
+  so Node can load them.
+- Sync (src/lib/sync.js) mirrors the localStorage blob to the server; the
+  store never awaits the network.
 - Theme is the "2b" editorial direction (ochre + Newsreader) via tokens in
   src/index.css `:root` — use existing tokens, don't invent colors.
 - Workflow is direct pushes to main; no PRs.

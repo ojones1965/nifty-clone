@@ -88,8 +88,9 @@ export default function Settings() {
       <section className="card">
         <div className="eyebrow">Data</div>
         <p className="card-sub">
-          Everything is stored in this browser. Download a backup occasionally —
-          clearing browser data would erase the app's data.
+          Data is stored in this browser, and on the server when sync is on.
+          Download a backup occasionally — with sync off, clearing browser data
+          would erase the app's data.
         </p>
         <button className="btn btn-outline" onClick={handleExport}>Download backup</button>
       </section>
