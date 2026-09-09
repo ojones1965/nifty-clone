@@ -1,5 +1,5 @@
 import { useSyncExternalStore } from 'react';
-import { subscribe, getVersion } from './storage';
+import { subscribe, getVersion } from './storage.js';
 
 // Re-render the component whenever any store data changes. The snapshot is a
 // monotonically increasing version number, so components read fresh data from

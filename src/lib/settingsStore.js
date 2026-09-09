@@ -1,6 +1,6 @@
 // User settings: dismissed alerts, marketplace connections, automation.
 
-import { getData, saveData } from './data';
+import { getData, saveData } from './data.js';
 
 // ---------- alerts ----------
 export function getDismissedAlerts() {

@@ -1,7 +1,7 @@
 // Orders, expenses, goals, and date-range analytics helpers.
 
-import { uid } from './storage';
-import { getData, saveData } from './data';
+import { uid } from './storage.js';
+import { getData, saveData } from './data.js';
 
 // ---------- orders ----------
 export function listOrders() {

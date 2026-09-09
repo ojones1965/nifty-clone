@@ -1,7 +1,7 @@
 // Inventory items + the order records created when an item sells.
 
-import { uid, isoDate } from './storage';
-import { getData, saveData } from './data';
+import { uid, isoDate } from './storage.js';
+import { getData, saveData } from './data.js';
 
 export function listItems(status) {
   const items = getData().items;

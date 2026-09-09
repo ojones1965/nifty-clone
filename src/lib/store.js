@@ -6,8 +6,8 @@
 //   analyticsStore.js orders, expenses, goals, range queries
 //   settingsStore.js  alerts, marketplace links, automation
 
-export { subscribe, isoDate } from './storage';
-export { MARKETPLACES, EXPENSE_CATEGORIES, ITEM_STATUSES } from './constants';
+export { subscribe, isoDate } from './storage.js';
+export { MARKETPLACES, EXPENSE_CATEGORIES, ITEM_STATUSES } from './constants.js';
 export {
   listItems,
   getItem,
@@ -16,7 +16,7 @@ export {
   deleteItem,
   listItem,
   markSold,
-} from './itemsStore';
+} from './itemsStore.js';
 export {
   listOrders,
   listExpenses,
@@ -27,7 +27,7 @@ export {
   ordersInRange,
   expensesInRange,
   itemsListedInRange,
-} from './analyticsStore';
+} from './analyticsStore.js';
 export {
   getDismissedAlerts,
   dismissAlert,
@@ -41,4 +41,4 @@ export {
   getAutomation,
   getAutomationSummary,
   toggleAutomation,
-} from './settingsStore';
+} from './settingsStore.js';

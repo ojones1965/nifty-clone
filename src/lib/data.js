@@ -1,7 +1,7 @@
 // Single-user data blob: shape and persistence. The app has no accounts —
 // everything lives under one fixed localStorage key.
 
-import { DATA_KEY, read, write, deepMerge, notify } from './storage';
+import { DATA_KEY, read, write, deepMerge, notify } from './storage.js';
 
 export function emptyData() {
   return {
