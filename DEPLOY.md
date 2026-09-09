@@ -31,8 +31,10 @@ the app where your inventory already lives.
 ### Update after changing the app or the server
 
 ```bash
-npm run build && rsync -az --delete --exclude node_modules Dockerfile nginx.conf docker-compose.yml .dockerignore dist server src/lib otislj@10.0.0.147:~/nifty-clone/ && ssh otislj@10.0.0.147 'cd ~/nifty-clone && docker compose up -d --build'
+npm run build && rsync -azR --delete --exclude node_modules Dockerfile nginx.conf docker-compose.yml .dockerignore dist server src/lib otislj@10.0.0.147:~/nifty-clone/ && ssh otislj@10.0.0.147 'cd ~/nifty-clone && docker compose up -d --build'
 ```
+
+(`-R` keeps the `src/lib` path relative, which the server image expects.)
 
 `npm ci` runs inside the server image build, so the server needs npm registry
 access (verified reachable). If that ever breaks, build the image elsewhere
