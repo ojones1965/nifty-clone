@@ -82,9 +82,10 @@ text) and `structuredContent`.
 | `flow_set_goals` (monthlyRevenue?, monthlySales?) | `setGoals` | idempotent |
 | `flow_summary` (from, to) | computed | readOnly |
 
-`flow_summary` returns `{ from, to, sales, revenue, fees, shipping, cogs,
-expenses, profit }` where revenue is the sum of `salePrice`, and profit is
-revenue − fees − shippingExpense − cogs − expenses. Dates are `YYYY-MM-DD`;
+`flow_summary` returns `{ from, to, sales, revenue, fees, shippingExpense,
+cogs, expenses, profit }` where revenue is the sum of `salePrice`, and profit
+is revenue − cogs − fees − shippingExpense − expenses (the formula the Home
+and Analytics pages use). Dates are `YYYY-MM-DD`;
 `from`/`to` are inclusive.
 
 Errors: unknown id → `isError: true` with a message naming the id and
@@ -103,14 +104,16 @@ localStorage stays the synchronous working copy. No page or hook changes.
     `DATA_KEY` and `notify()`. **Migration:** if the server blob has no items,
     orders, or expenses and the local blob has any, push local instead of
     overwriting it.
-  - `pushToServer(data)` — debounced 300 ms `PUT /api/data` with the full blob.
-  - `startSync()` — called once from `main.jsx`: initial pull, pull again on
+  - `startSync()` — called once from `main.jsx`: subscribe to the store for
+    debounced (300 ms) `PUT /api/data` pushes, initial pull, pull again on
     `visibilitychange` → visible, and every 30 s.
   - `getSyncStatus()` — `'off' | 'ok' | 'unauthorized' | 'offline'`, updated
     after every request, with `notify()` on change so Settings re-renders.
-- `src/lib/data.js` — `saveData` additionally calls `pushToServer(data)`.
-  Import `sync.js` from `data.js`; `sync.js` imports only from `storage.js`
-  to avoid a cycle.
+- `data.js` is untouched. `startSync()` subscribes to the store and pushes
+  whenever the serialized blob differs from the last synced copy, so a pull
+  never echoes back as a push and the server never imports browser code.
+  While unsynced local changes exist, a pull retries the push instead of
+  overwriting them.
 - `src/pages/Settings.jsx` — new "Server sync" card: token input, save button,
   status line ("Synced", "Token rejected", "Server unreachable", "Off").
   Uses existing card and input classes and tokens; no new colors.
