@@ -56,6 +56,47 @@ Any other MCP client (LibreChat, Open WebUI, n8n, Cursor, Claude Desktop)
 takes the same URL and header. Tools are prefixed `flow_`; `flow_summary`
 gives revenue, costs, and profit for a date range.
 
+#### LibreChat (same server, done 2026-09-12)
+
+LibreChat runs on LLMServer as the `LibreChat` container (port 3080), with
+its config in `/root/librechat`, which is root-owned, so edits need sudo.
+Its container reaches the Flow server through the Docker host gateway
+`172.18.0.1`, not the LAN IP.
+
+`/root/librechat/.env` holds the token as `FLOW_TOKEN=<token>`, and
+`/root/librechat/librechat.yaml` has:
+
+```yaml
+mcpServers:
+  flow:
+    type: streamable-http
+    url: http://172.18.0.1:8089/mcp
+    title: "Flow"
+    description: "Reseller inventory, orders, expenses and profit summary"
+    headers:
+      Authorization: 'Bearer ${FLOW_TOKEN}'
+    requiresOAuth: false
+    timeout: 30000
+    serverInstructions: true
+
+mcpSettings:
+  allowedAddresses:
+    - '172.18.0.1:8089'
+```
+
+`requiresOAuth: false` is required. LibreChat probes new MCP servers
+without credentials, and the Flow server's 401 makes it assume OAuth and
+register the server with zero tools. `allowedAddresses` is LibreChat's
+private-network allowlist; the entry must match the URL's host:port.
+
+Apply with `docker restart LibreChat`, then confirm in
+`docker logs --since 2m LibreChat` that `[MCP][flow]` lists the 14 tools.
+If the token is ever rotated, update both `.env` files (Flow's and
+LibreChat's) and restart both stacks.
+
+In the LibreChat UI, enable "Flow" in the MCP selector in the chat box and
+use a model that supports tool calling (Kimi and DeepSeek both do).
+
 ### Backups
 
 The whole dataset is `~/nifty-clone/data/flow-data.json`. Copy that file.
