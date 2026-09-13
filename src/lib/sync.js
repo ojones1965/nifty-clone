@@ -6,6 +6,10 @@
 import { DATA_KEY, notify, read, subscribe } from './storage.js';
 
 const TOKEN_KEY = 'resell_sync_token';
+// Set once this browser has completed a sync with the current token. Until
+// then an empty server is treated as brand new and the browser copy is
+// uploaded; afterwards an empty server means the records were deleted.
+const SYNCED_KEY = 'resell_sync_done';
 const PUSH_DELAY_MS = 300;
 const POLL_MS = 30000;
 
@@ -20,6 +24,7 @@ export function getSyncToken() {
 export function setSyncToken(token) {
   if (token) localStorage.setItem(TOKEN_KEY, token);
   else localStorage.removeItem(TOKEN_KEY);
+  localStorage.removeItem(SYNCED_KEY);
   lastSyncedRaw = null;
   return pullFromServer();
 }
@@ -50,13 +55,14 @@ export async function pullFromServer() {
     return;
   }
   const remote = await res.json();
-  if (!hasRecords(remote) && hasRecords(read(DATA_KEY, {}))) {
+  if (!localStorage.getItem(SYNCED_KEY) && !hasRecords(remote) && hasRecords(read(DATA_KEY, {}))) {
     // First run against an empty server: the browser copy is the real one.
     await pushNow();
     return;
   }
   localStorage.setItem(DATA_KEY, JSON.stringify(remote));
   lastSyncedRaw = localRaw();
+  localStorage.setItem(SYNCED_KEY, '1');
   setStatus('ok');
   notify();
 }
@@ -86,7 +92,10 @@ async function pushNow() {
     setStatus('offline');
     return;
   }
-  if (res.ok) lastSyncedRaw = raw;
+  if (res.ok) {
+    lastSyncedRaw = raw;
+    localStorage.setItem(SYNCED_KEY, '1');
+  }
   setStatus(res.ok ? 'ok' : res.status === 401 ? 'unauthorized' : 'offline');
 }
 

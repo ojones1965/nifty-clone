@@ -97,6 +97,59 @@ LibreChat's) and restart both stacks.
 In the LibreChat UI, enable "Flow" in the MCP selector in the chat box and
 use a model that supports tool calling (Kimi and DeepSeek both do).
 
+#### Open WebUI (ODS stack, done 2026-09-12)
+
+Open WebUI 0.7.2 runs as the `ods-webui` container on port 3010 with no
+login (`WEBUI_AUTH=false`). Flow is registered as an MCP tool server in
+Admin Panel → Settings → External Tools. The record lives in the
+`tool_server.connections` list inside the single-row `config` table of
+`~/ods/data/open-webui/webui.db` (root-owned SQLite), as:
+
+```json
+{
+  "url": "http://172.18.0.1:8089/mcp",
+  "path": "",
+  "type": "mcp",
+  "auth_type": "bearer",
+  "key": "<FLOW_TOKEN>",
+  "headers": null,
+  "config": { "enable": true },
+  "info": { "id": "flow", "name": "Flow",
+            "description": "Reseller inventory, orders, expenses and profit summary" }
+}
+```
+
+Gotchas found while setting it up:
+
+- For `type: mcp` the `url` must be the full endpoint including `/mcp`.
+  The separate `path` field is only used for OpenAPI servers; with the
+  bare origin the client POSTs to `/` and gets a 405.
+- `info.id` is required. The chat UI references the server as
+  `server:mcp:<id>`, and a record without it can never be selected.
+- The same DB-edit route as `ui.default_models` applies: stop the
+  container, edit with a throwaway `python:3.11-slim` container mounting
+  the data dir, start it again. The Add Connection dialog in the admin UI
+  does the same thing if you would rather paste the token by hand.
+- **Ollama-backed models cannot use Flow in 0.7.2.** The Ollama path
+  deep-copies the request with the live MCP client inside and fails with
+  `cannot pickle '_asyncio.Future' object`. The OpenAI-compatible path has
+  no such copy, so use the llama.cpp models (Qwen3-30B-A3B, Qwen3.5-27B),
+  which are also the ones on the GPU. Verified working with Qwen3-30B-A3B.
+  A newer Open WebUI may fix this; re-test after any upgrade.
+
+To use it: pick a llama.cpp model, open the Integrations icon in the chat
+box, then Tools, and switch Flow on. It stays on for that chat.
+
+#### Whole-blob sync caveat
+
+Every browser with the token pushes its entire local copy on any change,
+last write wins. A dashboard edit and an MCP edit made within the same
+30-second poll window can overwrite each other. If an MCP change seems to
+vanish, check `docker logs nifty-clone` for a `PUT /api/data` right after
+it. (Until 2026-09-12 a tab also re-uploaded its copy whenever the server
+had zero records, which undid any MCP delete of the last item; the browser
+now only does that on its first sync with a token.)
+
 ### Backups
 
 The whole dataset is `~/nifty-clone/data/flow-data.json`. Copy that file.

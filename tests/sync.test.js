@@ -44,6 +44,18 @@ describe('pullFromServer', () => {
     expect(JSON.parse(put[1].body).items[0].title).toBe('Local only');
   });
 
+  it('follows the server once synced even when it has become empty', async () => {
+    let remote = { ...emptyBlob(), items: [{ id: 'r', title: 'Deleted via MCP' }] };
+    vi.stubGlobal('fetch', vi.fn(async (url, init = {}) =>
+      init.method === 'PUT' ? jsonResponse({ ok: true }) : jsonResponse(remote),
+    ));
+    const sync = await freshSync();
+    await sync.pullFromServer();
+    remote = emptyBlob();
+    await sync.pullFromServer();
+    expect(read(DATA_KEY, {}).items).toHaveLength(0);
+  });
+
   it('reports unauthorized on a 401', async () => {
     vi.stubGlobal('fetch', vi.fn(async () => jsonResponse({ error: 'unauthorized' }, 401)));
     const sync = await freshSync();
