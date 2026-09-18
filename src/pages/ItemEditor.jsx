@@ -13,6 +13,7 @@ import {
 } from '../lib/store';
 import MarketBadge from '../components/MarketBadge';
 import Modal from '../components/Modal';
+import { speakConfirmation } from '../lib/voice';
 
 const EMPTY = {
   title: '',
@@ -334,6 +335,8 @@ function SoldModal({ item, defaultMarketplaces, onClose, onSold }) {
       shippingExpense: shippingExpense === '' ? 0 : Number(shippingExpense),
       date,
     });
+    const marketplaceName = MARKETPLACES.find((m) => m.id === marketplace)?.name || marketplace;
+    speakConfirmation(`Sold ${item.title} for $${Number(salePrice)} on ${marketplaceName}.`);
     onClose();
     onSold();
   }
